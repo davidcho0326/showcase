@@ -84,17 +84,28 @@ section{min-height:100vh;padding:120px 60px 80px;position:relative}
 .link-btn:hover{background:rgba(99,102,241,0.12);transform:translateY(-2px);box-shadow:var(--shadow-md)}
 #stage2{background:var(--bg-alt)}
 .stage2-header .section-tag{color:var(--accent-analyze);border-color:rgba(217,119,6,0.2);background:rgba(217,119,6,0.06)}
-.analysis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:40px}
-.analysis-card{padding:28px;background:var(--bg-white)}
-.card-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:14px;background:rgba(217,119,6,0.08)}
-.analysis-card h4{font-size:1rem;font-weight:700;margin-bottom:8px;color:var(--text-primary)}
-.analysis-card p{font-size:.85rem;color:var(--text-secondary)}
-.analysis-card ul{list-style:none;padding:0;margin-top:12px}
-.analysis-card ul li{font-size:.82rem;color:var(--text-secondary);padding:4px 0 4px 16px;position:relative}
-.analysis-card ul li::before{content:'\25B8';position:absolute;left:0;color:var(--accent-analyze)}
-.strategy-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px}
-.emotion-keywords{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.emotion-tag{padding:6px 14px;border-radius:20px;font-size:.8rem;font-weight:600;background:rgba(217,119,6,0.08);border:1px solid rgba(217,119,6,0.2);color:var(--accent-analyze)}
+/* Stage 2 — Pipeline Flow Diagram */
+.s2-pipeline{display:flex;align-items:stretch;gap:0;margin-bottom:40px;position:relative}
+.s2-step{flex:1;position:relative;z-index:1}
+.s2-step-inner{background:var(--bg-white);border:1px solid var(--glass-border);border-radius:16px;padding:24px 20px;height:100%;transition:transform .3s,box-shadow .3s,border-color .3s}
+.s2-step-inner:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:rgba(217,119,6,0.3)}
+.s2-step-num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;font-size:.7rem;font-weight:800;color:#fff;background:linear-gradient(135deg,#d97706,#f59e0b);margin-bottom:12px}
+.s2-step-title{font-size:1.05rem;font-weight:700;color:var(--text-primary);margin-bottom:6px}
+.s2-step-desc{font-size:.82rem;color:var(--text-secondary);margin-bottom:14px;line-height:1.6}
+.s2-step-tags{display:flex;flex-wrap:wrap;gap:6px}
+.s2-step-tag{padding:4px 10px;border-radius:6px;font-size:.72rem;font-weight:500;background:rgba(217,119,6,0.06);border:1px solid rgba(217,119,6,0.15);color:var(--accent-analyze)}
+.s2-tag-highlight{background:rgba(217,119,6,0.15);border:2px solid rgba(217,119,6,0.5);font-weight:700;box-shadow:0 0 0 3px rgba(217,119,6,0.08)}
+.s2-arrow{display:flex;align-items:center;justify-content:center;width:48px;flex-shrink:0;z-index:2}
+.s2-arrow svg{width:32px;height:32px}
+/* Stage 2 — Detail Grid below pipeline */
+.s2-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:32px}
+.s2-detail-card{background:var(--bg-white);border:1px solid var(--glass-border);border-radius:14px;padding:24px;transition:transform .3s,box-shadow .3s}
+.s2-detail-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.s2-detail-card h4{font-size:.95rem;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.s2-detail-card ul{list-style:none;padding:0;margin:0}
+.s2-detail-card ul li{font-size:.82rem;color:var(--text-secondary);padding:5px 0 5px 16px;position:relative;line-height:1.5}
+.s2-detail-card ul li::before{content:'\25B8';position:absolute;left:0;color:var(--accent-analyze)}
+@media(max-width:900px){.s2-pipeline{flex-direction:column;gap:0}.s2-arrow{width:auto;height:36px;transform:rotate(90deg)}.s2-detail-grid{grid-template-columns:1fr}}
 #stage3{background:var(--bg-white)}
 .stage3-header .section-tag{color:var(--accent-create);border-color:rgba(225,29,72,0.2);background:rgba(225,29,72,0.06)}
 .step-framework{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:40px}
@@ -146,6 +157,66 @@ section{min-height:100vh;padding:120px 60px 80px;position:relative}
 .ai-infl-step .step-n{font-size:.65rem;font-weight:700;color:var(--accent-create);letter-spacing:1px;margin-bottom:4px}
 .ai-infl-step h5{font-size:.82rem;font-weight:600;color:var(--text-primary);margin-bottom:2px}
 .ai-infl-step p{font-size:.72rem;color:var(--text-secondary);margin:0}
+.ba-pair-highlight{border:2.5px solid var(--accent-create);box-shadow:0 0 0 4px rgba(225,29,72,0.12),var(--shadow-md);position:relative}
+.ba-pair-highlight::after{content:'';position:absolute;bottom:-18px;left:50%;transform:translateX(-50%);width:2px;height:16px;background:var(--accent-create)}
+.ai-infl-workflow{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:16px;padding:28px;position:relative}
+.ai-infl-workflow::before{content:'';position:absolute;top:-1px;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent-create),#6366f1,#d97706);border-radius:16px 16px 0 0}
+.workflow-title{text-align:center;margin-bottom:24px}
+.workflow-pipeline{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:8px;align-items:center}
+.workflow-step{background:var(--bg-white);border:1px solid var(--glass-border);border-radius:14px;overflow:hidden;text-align:center;transition:transform .3s,box-shadow .3s}
+.workflow-step:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.workflow-step-source{border:2px solid var(--accent-create);box-shadow:0 0 0 3px rgba(225,29,72,0.08)}
+.workflow-step-badge{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:1px;padding:3px 10px;border-radius:8px;margin:10px auto 6px;background:rgba(225,29,72,0.1);color:var(--accent-create);border:1px solid rgba(225,29,72,0.2)}
+.workflow-media-wrap{aspect-ratio:3/4;overflow:hidden;margin:0 10px}
+.workflow-media-wrap img,.workflow-media-wrap video{width:100%;height:100%;object-fit:cover;border-radius:10px}
+.workflow-step-label{font-size:.8rem;font-weight:700;color:var(--text-primary);padding:8px 10px 2px}
+.workflow-step-desc{font-size:.68rem;color:var(--text-secondary);padding:0 10px 12px}
+.workflow-arrow{display:flex;align-items:center;justify-content:center;color:var(--text-muted)}
+.workflow-arrow svg{opacity:.6}
+.brandcut-ref{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:14px;padding:20px 24px}
+.brandcut-ref-header{text-align:center;margin-bottom:16px}
+.brandcut-ref-tag{font-size:.65rem;font-weight:700;letter-spacing:1.5px;color:var(--accent-analyze);text-transform:uppercase;background:rgba(217,119,6,0.08);padding:3px 10px;border-radius:8px;border:1px solid rgba(217,119,6,0.15)}
+.brandcut-ref-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.brandcut-ref-item{border-radius:10px;overflow:hidden;border:1px solid var(--glass-border);background:var(--bg-white);transition:transform .3s,box-shadow .3s}
+.brandcut-ref-item:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.brandcut-ref-img{aspect-ratio:3/4;overflow:hidden}
+.brandcut-ref-img img{width:100%;height:100%;object-fit:cover}
+.brandcut-ref-label{padding:8px 10px;font-size:.68rem;color:var(--text-secondary);text-align:center;border-top:1px solid var(--glass-border);line-height:1.5}
+.ref-type{display:block;font-size:.58rem;font-weight:700;letter-spacing:.5px;margin-bottom:2px}
+.ref-type-person{color:#6366f1}
+.ref-type-clothing{color:var(--accent-create)}
+.ref-type-bg{color:var(--accent-collect)}
+@media(max-width:900px){.brandcut-ref-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){.brandcut-ref-grid{grid-template-columns:repeat(2,1fr)}}
+/* Reference Flow — Light */
+.bc-ref-flow{position:relative}
+.bc-ref-arrow-up{text-align:center;margin-bottom:6px}
+.bc-ref-thumb-contain{background:#f9fafb;display:flex;align-items:center;justify-content:center}
+.bc-ref-thumb-contain img{object-fit:contain!important;padding:4px}
+.bc-ref-light{background:var(--glass-bg);border:1px dashed rgba(124,58,237,0.25);border-radius:14px;padding:14px 20px 12px;position:relative}
+.bc-ref-title-row{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.bc-ref-tag-light{font-size:.6rem;font-weight:700;letter-spacing:1.5px;color:#7c3aed;text-transform:uppercase;padding:3px 10px;border-radius:8px;background:rgba(124,58,237,0.06);border:1px solid rgba(124,58,237,0.18);white-space:nowrap}
+.bc-ref-subtitle-light{font-size:.75rem;color:var(--text-muted);font-weight:400}
+.bc-ref-thumbs{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.bc-ref-thumb{border-radius:8px;overflow:hidden;background:var(--bg-white);border:1px solid var(--glass-border);transition:transform .3s,box-shadow .3s,border-color .3s}
+.bc-ref-thumb:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:rgba(124,58,237,0.25)}
+.bc-ref-thumb-img{aspect-ratio:1/1;overflow:hidden}
+.bc-ref-thumb-img img{width:100%;height:100%;object-fit:cover;transition:filter .3s}
+.bc-ref-thumb:hover .bc-ref-thumb-img img{filter:brightness(1.03)}
+.bc-ref-thumb-info{display:flex;align-items:center;gap:5px;padding:4px 8px;font-size:.62rem;font-weight:500;color:var(--text-secondary);border-top:1px solid var(--glass-border)}
+.bc-ref-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.bc-ref-dot-person{background:#6366f1}
+.bc-ref-dot-clothing{background:#fb7185}
+.bc-ref-dot-bg{background:#fbbf24}
+@media(max-width:1000px){.bc-ref-thumbs{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){.bc-ref-thumbs{grid-template-columns:repeat(2,1fr)}}
+.workflow-media-video{position:relative}
+.video-sound-btn{position:absolute;bottom:14px;right:14px;width:36px;height:36px;border-radius:50%;border:none;background:rgba(0,0,0,0.55);backdrop-filter:blur(6px);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .15s;z-index:3}
+.video-sound-btn:hover{background:rgba(0,0,0,0.75);transform:scale(1.1)}
+.video-sound-btn .icon-unmuted{display:none}
+.video-sound-btn.is-unmuted .icon-muted{display:none}
+.video-sound-btn.is-unmuted .icon-unmuted{display:block}
+@media(max-width:1100px){.workflow-pipeline{grid-template-columns:1fr;gap:0}.workflow-arrow{transform:rotate(90deg);padding:4px 0}}
 @media(max-width:900px){.ba-grid,.ba-grid-3{grid-template-columns:repeat(2,1fr)}.ai-video-pipeline{grid-template-columns:1fr}.ai-infl-row{grid-template-columns:1fr}.ba-grid-landscape{grid-template-columns:1fr}}
 @media(max-width:600px){.ba-grid,.ba-grid-3,.ba-grid-landscape{grid-template-columns:1fr}}
 .collect-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:48px;margin-bottom:48px}
@@ -323,33 +394,52 @@ footer p{color:var(--text-muted);font-size:.85rem}
     <div class="section-tag reveal">STAGE 2 &middot; DATA ANALYSIS &amp; STRATEGY</div>
     <h2 class="section-title reveal reveal-delay-1">데이터 분석 &amp; 전략 제안</h2>
     <p class="section-subtitle reveal reveal-delay-2">수집된 데이터를 AI가 정제&middot;분석하여<br>인플루언서 매칭부터 콘텐츠 전략까지 자동으로 제안합니다</p>
-    <div class="analysis-grid">
-      <div class="glass-card analysis-card reveal reveal-delay-1"><div class="card-icon">&#x1F4E6;</div><h4>데이터 정제</h4><p>수집 데이터를 구조화된 분석 데이터로 변환</p><ul><li>상품 파싱 (카테고리, 브랜드, 키워드)</li><li>핵심 노출 포인트 Top 5 추출</li><li>타겟 페르소나 &amp; 니즈 분석</li><li>소비자 언어 기반 카피라이팅</li></ul></div>
-      <div class="glass-card analysis-card reveal reveal-delay-2"><div class="card-icon">&#x1F465;</div><h4>인플루언서 분석</h4><p>최적 크리에이터 매칭 및 심층 분석</p><ul><li>티어 분류 (Mega / Macro / Micro)</li><li>콘텐츠 강점 분석 (안정성, 일관성)</li><li>카테고리 친화도 분석</li><li>인게이지먼트 / 조회수 / 참여율</li></ul></div>
-      <div class="glass-card analysis-card reveal reveal-delay-3"><div class="card-icon">&#x1F9E0;</div><h4>전략 자동 제안</h4><p>AI가 완성도 높은 콘텐츠 전략을 생성</p><ul><li>소비자 감정 언어 매핑</li><li>후킹 전략 (Visual/Audio/Gesture)</li><li>콘텐츠 가이드 (조명, 미장센)</li><li>시나리오 자동 생성 (15-60초)</li></ul></div>
-    </div>
-    <div class="strategy-row">
-      <div class="glass-card reveal reveal-delay-1" style="padding:28px;">
-        <h4 style="font-size:1rem;font-weight:700;margin-bottom:8px;">&#x1F49C; 소비자 감정 언어 해석</h4>
-        <p style="font-size:.85rem;color:var(--text-secondary);margin-bottom:12px;">스펙을 나열하는 것이 아니라, 소비자가 제품을 통해 얻게 될 '감정적 해방'에 집중합니다</p>
-        <div class="emotion-keywords"><span class="emotion-tag">#무결점 (Flawless)</span><span class="emotion-tag">#해방감 (Liberation)</span><span class="emotion-tag">#안도감 (Relief)</span><span class="emotion-tag">#자신감 (Confidence)</span><span class="emotion-tag">#세련됨 (Sleek)</span></div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <div style="flex:1;padding:12px;border-radius:8px;background:rgba(251,191,36,0.06);border:1px solid rgba(251,191,36,0.15);text-align:center;"><div style="font-size:.7rem;color:var(--accent-analyze);font-weight:600;">1단계</div><div style="font-size:.82rem;margin-top:4px;">시각적 첫 반응</div></div>
-          <div style="flex:1;padding:12px;border-radius:8px;background:rgba(251,191,36,0.06);border:1px solid rgba(251,191,36,0.15);text-align:center;"><div style="font-size:.7rem;color:var(--accent-analyze);font-weight:600;">2단계</div><div style="font-size:.82rem;margin-top:4px;">감정 몰입</div></div>
-          <div style="flex:1;padding:12px;border-radius:8px;background:rgba(251,191,36,0.06);border:1px solid rgba(251,191,36,0.15);text-align:center;"><div style="font-size:.7rem;color:var(--accent-analyze);font-weight:600;">3단계</div><div style="font-size:.82rem;margin-top:4px;">사용 후 상태</div></div>
+    <!-- Pipeline Flow Diagram -->
+    <div class="s2-pipeline">
+      <div class="s2-step reveal reveal-delay-1">
+        <div class="s2-step-inner">
+          <div class="s2-step-num">1</div>
+          <div class="s2-step-title">데이터 정제</div>
+          <div class="s2-step-desc">Stage 1에서 수집된 원본 데이터를<br>구조화된 분석 데이터로 변환</div>
+          <div class="s2-step-tags">
+            <span class="s2-step-tag">상품 파싱</span>
+            <span class="s2-step-tag">카테고리 분류</span>
+            <span class="s2-step-tag">키워드 추출</span>
+            <span class="s2-step-tag">데이터 정규화</span>
+            <span class="s2-step-tag s2-tag-highlight">성과 지표 수집</span>
+          </div>
         </div>
       </div>
-      <div class="glass-card reveal reveal-delay-2" style="padding:28px;">
-        <h4 style="font-size:1rem;font-weight:700;margin-bottom:8px;">&#x1F3AF; 후킹 코어 전략</h4>
-        <p style="font-size:.85rem;color:var(--text-secondary);margin-bottom:12px;">멀티모달 트리거로 첫 3초 안에 시청자의 관심을 확보합니다</p>
-        <ul style="list-style:none;padding:0;">
-          <li style="padding:8px 0;font-size:.85rem;border-bottom:1px solid var(--glass-border);"><strong style="color:#6366f1;">Visual</strong> — 극접 매크로, 스플릿 스크린, Before/After</li>
-          <li style="padding:8px 0;font-size:.85rem;border-bottom:1px solid var(--glass-border);"><strong style="color:#0d9488;">Audio</strong> — ASMR, 텍스처 사운드, 뮤직 큐</li>
-          <li style="padding:8px 0;font-size:.85rem;border-bottom:1px solid var(--glass-border);"><strong style="color:#d97706;">Gesture</strong> — 제로 트랜스퍼 테스트, 어플리케이션 기법</li>
-          <li style="padding:8px 0;font-size:.85rem;"><strong style="color:#e11d48;">Logic</strong> — 문제 &rarr; 솔루션 전환 구조</li>
-        </ul>
+      <div class="s2-arrow reveal reveal-delay-1"><svg viewBox="0 0 32 32" fill="none"><path d="M6 16h18" stroke="rgba(217,119,6,0.5)" stroke-width="2" stroke-linecap="round"/><path d="M20 10l6 6-6 6" stroke="rgba(217,119,6,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="s2-step reveal reveal-delay-2">
+        <div class="s2-step-inner">
+          <div class="s2-step-num">2</div>
+          <div class="s2-step-title">분석 로직 수립</div>
+          <div class="s2-step-desc">정제된 데이터에 AI 분석 로직을 적용하여<br>인사이트와 패턴을 도출</div>
+          <div class="s2-step-tags">
+            <span class="s2-step-tag">트렌드 분석</span>
+            <span class="s2-step-tag">성과 지표 분석</span>
+            <span class="s2-step-tag">인플루언서 매칭</span>
+            <span class="s2-step-tag">페르소나 분석</span>
+          </div>
+        </div>
+      </div>
+      <div class="s2-arrow reveal reveal-delay-2"><svg viewBox="0 0 32 32" fill="none"><path d="M6 16h18" stroke="rgba(217,119,6,0.5)" stroke-width="2" stroke-linecap="round"/><path d="M20 10l6 6-6 6" stroke="rgba(217,119,6,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="s2-step reveal reveal-delay-3">
+        <div class="s2-step-inner">
+          <div class="s2-step-num">3</div>
+          <div class="s2-step-title">전략 제안</div>
+          <div class="s2-step-desc">분석 결과를 기반으로<br>실행 가능한 콘텐츠 전략을 자동 생성</div>
+          <div class="s2-step-tags">
+            <span class="s2-step-tag">콘텐츠 가이드</span>
+            <span class="s2-step-tag">시나리오 생성</span>
+            <span class="s2-step-tag">촬영 스펙</span>
+            <span class="s2-step-tag">시딩 전략</span>
+          </div>
+        </div>
       </div>
     </div>
+
     <div class="screenshot-grid" style="margin-top:24px;">
       <div class="screenshot-container reveal reveal-delay-1"><img src="images/seeding/seeding_parsing.png" alt="AI 제품 분석" loading="lazy"><div class="screenshot-label">&#x1F4CA; AI 제품 심층 분석 &amp; 기획안</div></div>
       <div class="screenshot-container reveal reveal-delay-2"><img src="images/seeding/seeding_plan-edit.png" alt="AI 기획안 수정" loading="lazy"><div class="screenshot-label">&#x1F9E0; 소비자 감정 언어 &amp; 전략 생성</div></div>
@@ -357,6 +447,11 @@ footer p{color:var(--text-muted);font-size:.85rem}
     <div class="screenshot-grid" style="margin-top:24px;">
       <div class="screenshot-container reveal reveal-delay-1"><img src="images/seeding/seeding_ai-image.png" alt="AI 이미지 생성" loading="lazy"><div class="screenshot-label">&#x2728; AI 이미지 생성 시스템 인터페이스</div></div>
       <div class="screenshot-container reveal reveal-delay-2"><img src="images/seeding/seeding_review.png" alt="최종 검수" loading="lazy"><div class="screenshot-label">&#x2705; 최종 검수 &amp; 시딩 가이드</div></div>
+    </div>
+    <div class="reveal" style="margin-top:32px;">
+      <div style="border-radius:16px;overflow:hidden;border:1px solid var(--glass-border);box-shadow:var(--shadow-lg);">
+        <video src="images/bgswap/03112.mp4" autoplay muted loop playsinline controls style="width:100%;display:block;"></video>
+      </div>
     </div>
   </div>
 </section>
@@ -386,8 +481,8 @@ footer p{color:var(--text-muted);font-size:.85rem}
           <div style="color:var(--text-secondary);">Hook &rarr; Problem &rarr; Solution &rarr; Proof &rarr; CTA</div>
         </div>
       </div>
-      <div class="glass-card content-feature reveal reveal-delay-3"><h4>촬영 테크니컬 스펙</h4><p style="font-size:.85rem;color:var(--text-secondary);">조명 세팅(3-point), 미장센, 캡션 구조, 업로드 스펙까지 AI가 기술 가이드를 제공합니다.</p></div>
-      <div class="glass-card content-feature reveal reveal-delay-4"><h4>최종 검수 &amp; PDF Export</h4><p style="font-size:.85rem;color:var(--text-secondary);">AI가 생성한 시딩 가이드를 담당자가 최종 검토하고 승인합니다. 릴스 시딩 가이드, 캠페인 개요, 시나리오 이미지가 포함됩니다.</p></div>
+      <div class="glass-card content-feature reveal reveal-delay-3"><h4>생성 자동화 파이프라인</h4><p style="font-size:.85rem;color:var(--text-secondary);">Claude Code + Image Gen API 기반으로 프롬프트 생성부터 이미지 출력까지 자동화합니다. 대량 배치 처리로 수백 장의 콘텐츠를 빠르게 생성합니다.</p><div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;"><span style="padding:4px 10px;border-radius:6px;font-size:.75rem;background:rgba(251,113,133,0.1);border:1px solid rgba(251,113,133,0.2);color:var(--accent-create);">Claude Code</span><span style="padding:4px 10px;border-radius:6px;font-size:.75rem;background:rgba(251,113,133,0.1);border:1px solid rgba(251,113,133,0.2);color:var(--accent-create);">Batch Processing</span><span style="padding:4px 10px;border-radius:6px;font-size:.75rem;background:rgba(251,113,133,0.1);border:1px solid rgba(251,113,133,0.2);color:var(--accent-create);">API Pipeline</span></div></div>
+      <div class="glass-card content-feature reveal reveal-delay-4"><h4>검수 자동화 &amp; 피드백 루프</h4><p style="font-size:.85rem;color:var(--text-secondary);">생성 결과물을 자동 검수하고, 유저 피드백을 Claude Code 스킬에 반영하여 생성 품질을 지속적으로 개선합니다. 피드백이 축적될수록 프롬프트와 파이프라인이 자동으로 고도화됩니다.</p><div style="margin-top:12px;padding:12px;border-radius:8px;background:rgba(251,113,133,0.04);border:1px solid rgba(251,113,133,0.1);font-size:.8rem;"><div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;"><span style="color:var(--accent-create);font-weight:600;">Feedback Loop</span></div><div style="color:var(--text-secondary);">생성 &rarr; 검수 &rarr; 유저 피드백 &rarr; 스킬 자동 개선 &rarr; 재생성</div></div></div>
     </div>
 
     <!-- 착장 변경 (Virtual Try-On) -->
@@ -421,14 +516,58 @@ footer p{color:var(--text-muted);font-size:.85rem}
       <div class="ba-grid">
         <div class="ba-pair reveal reveal-delay-1"><div class="ba-images"><img src="images/brandcut/brandcut__brandcut_20260210_183420_3.png" alt="브랜드컷 MLB" class="ba-before"></div><div class="ba-label">MLB Varsity Jacket</div></div>
         <div class="ba-pair reveal reveal-delay-2"><div class="ba-images"><img src="images/brandcut/discovery_26ss_test__test_04_urban_seated_20260205_224419.png" alt="브랜드컷 Discovery" class="ba-before"></div><div class="ba-label">Discovery Urban Cargo</div></div>
-        <div class="ba-pair reveal reveal-delay-3"><div class="ba-images"><img src="images/brandcut/discovery_26ss_v9__v9_black_windbreaker_score95_20260206_005050.png" alt="브랜드컷 Discovery Windbreaker" class="ba-before"></div><div class="ba-label">Discovery Black Wind</div></div>
-        <div class="ba-pair reveal reveal-delay-4"><div class="ba-images"><img src="images/brandcut/mlb_pose_strategy__MLB_STYLE_119_MS_15deg_210321.png" alt="브랜드컷 MLB Pose" class="ba-before"></div><div class="ba-label">MLB Street Pose</div></div>
+        <div class="ba-pair reveal reveal-delay-3"><div class="ba-images"><img src="images/brandcut/brandcut_discovery_lavender_jacket_26ss.png" alt="브랜드컷 Discovery Lavender" class="ba-before"></div><div class="ba-label">Discovery Lavender Crop</div></div>
+        <div class="ba-pair reveal reveal-delay-4"><div class="ba-images"><img src="images/brandcut/mlb_final_departure_20260204_100626.png" alt="브랜드컷 MLB Departure" class="ba-before"></div><div class="ba-label">MLB Final Departure</div></div>
       </div>
       <div class="ba-grid" style="margin-top:16px;">
-        <div class="ba-pair reveal reveal-delay-1"><div class="ba-images"><img src="images/brandcut/brandcut_athleisure_bench_26ss.png" alt="브랜드컷 Athleisure" class="ba-before"></div><div class="ba-label">Athleisure Bench Set</div></div>
-        <div class="ba-pair reveal reveal-delay-2"><div class="ba-images"><img src="images/brandcut/mlb_final_departure_20260204_100626.png" alt="브랜드컷 MLB Departure" class="ba-before"></div><div class="ba-label">MLB Final Departure</div></div>
-        <div class="ba-pair reveal reveal-delay-3"><div class="ba-images"><img src="images/brandcut/brandcut_discovery_coral_windbreaker_26ss.png" alt="브랜드컷 Discovery Coral" class="ba-before"></div><div class="ba-label">Discovery Coral Wind</div></div>
-        <div class="ba-pair reveal reveal-delay-4"><div class="ba-images"><img src="images/brandcut/brandcut_discovery_lavender_jacket_26ss.png" alt="브랜드컷 Discovery Lavender" class="ba-before"></div><div class="ba-label">Discovery Lavender Crop</div></div>
+        <div class="ba-pair reveal reveal-delay-1"><div class="ba-images"><img src="images/brandcut/athleisure_bench_new.png" alt="브랜드컷 Athleisure" class="ba-before"></div><div class="ba-label">Athleisure Bench Set</div></div>
+        <div class="ba-pair reveal reveal-delay-2"><div class="ba-images"><img src="images/brandcut/brandcut_discovery_coral_windbreaker_26ss.png" alt="브랜드컷 Discovery Coral" class="ba-before"></div><div class="ba-label">Discovery Coral Wind</div></div>
+        <div class="ba-pair reveal reveal-delay-3"><div class="ba-images"><img src="images/brandcut/mlb_street_pose_new.png" alt="브랜드컷 Discovery Street" class="ba-before"></div><div class="ba-label">Discovery Street</div></div>
+        <div class="ba-pair reveal reveal-delay-4"><div class="ba-images"><img src="images/brandcut/discovery_black_wind_new.png" alt="브랜드컷 Discovery Brown Setup" class="ba-before"></div><div class="ba-label">Discovery Brown Setup</div></div>
+      </div>
+
+      <!-- Reference Sources — Light Flow -->
+      <div class="bc-ref-flow reveal" style="margin-top:20px;">
+        <div class="bc-ref-arrow-up"><svg width="22" height="36" viewBox="0 0 22 36"><path d="M11 34 L11 6" stroke="rgba(124,58,237,0.35)" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M3 13 L11 3 L19 13" stroke="rgba(124,58,237,0.35)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="bc-ref-light">
+          <div class="bc-ref-title-row">
+            <span class="bc-ref-tag-light">REFERENCE INPUTS</span>
+            <span class="bc-ref-subtitle-light">인물 · 착장 · 배경 소스를 AI가 조합하여 브랜드컷 생성</span>
+          </div>
+          <div class="bc-ref-thumbs">
+            <div class="bc-ref-thumb reveal reveal-delay-1">
+              <div class="bc-ref-thumb-img bc-ref-thumb-contain"><img src="images/brandcut/ref_person_coral.png" alt="착장 A"></div>
+              <div class="bc-ref-thumb-info"><span class="bc-ref-dot bc-ref-dot-clothing"></span>착장 A</div>
+            </div>
+            <div class="bc-ref-thumb reveal reveal-delay-1">
+              <div class="bc-ref-thumb-img"><img src="images/brandcut/ref_person_b.png" alt="인물 A"></div>
+              <div class="bc-ref-thumb-info"><span class="bc-ref-dot bc-ref-dot-person"></span>인물 A</div>
+            </div>
+            <div class="bc-ref-thumb reveal reveal-delay-2">
+              <div class="bc-ref-thumb-img"><img src="images/brandcut/ref_bg_architecture.png" alt="배경 A"></div>
+              <div class="bc-ref-thumb-info"><span class="bc-ref-dot bc-ref-dot-bg"></span>배경 A</div>
+            </div>
+            <div class="bc-ref-thumb reveal reveal-delay-3">
+              <div class="bc-ref-thumb-img"><img src="images/brandcut/ref_bg_gwagon.png" alt="배경 B"></div>
+              <div class="bc-ref-thumb-info"><span class="bc-ref-dot bc-ref-dot-bg"></span>배경 B</div>
+            </div>
+            <div class="bc-ref-thumb reveal reveal-delay-3">
+              <div class="bc-ref-thumb-img bc-ref-thumb-contain"><img src="images/brandcut/ref_clothing_brown.png" alt="착장 B"></div>
+              <div class="bc-ref-thumb-info"><span class="bc-ref-dot bc-ref-dot-clothing"></span>착장 B</div>
+            </div>
+            <div class="bc-ref-thumb reveal reveal-delay-4">
+              <div class="bc-ref-thumb-img"><img src="images/brandcut/ref_person_brown.png" alt="인물 B"></div>
+              <div class="bc-ref-thumb-info"><span class="bc-ref-dot bc-ref-dot-person"></span>인물 B</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 브랜드컷 영상 (Full-width) -->
+    <div class="bc-video-showcase reveal" style="margin-top:32px;">
+      <div style="border-radius:16px;overflow:hidden;border:1px solid var(--glass-border);box-shadow:var(--shadow-lg);">
+        <video src="images/bgswap/311.mp4" autoplay muted loop playsinline controls style="width:100%;display:block;"></video>
       </div>
     </div>
 
@@ -467,6 +606,34 @@ footer p{color:var(--text-muted);font-size:.85rem}
           </div>
         </div>
       </div>
+
+      <!-- Image to Video 사례 -->
+      <div style="margin-top:36px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+          <span style="font-size:.65rem;font-weight:700;letter-spacing:1.5px;color:#e11d48;text-transform:uppercase;padding:3px 10px;border-radius:8px;background:rgba(225,29,72,0.06);border:1px solid rgba(225,29,72,0.18);">IMAGE TO VIDEO</span>
+          <span style="font-size:.85rem;color:var(--text-secondary);">단일 이미지에서 고퀄리티 모션 영상을 생성합니다</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr auto 2fr;gap:16px;align-items:center;max-width:700px;margin:0 auto;">
+          <div class="reveal reveal-delay-1" style="border-radius:14px;overflow:hidden;border:1px solid var(--glass-border);box-shadow:var(--shadow-md);background:var(--bg-white);">
+            <div style="aspect-ratio:3/4;overflow:hidden;">
+              <img src="images/ai-video/image - 2026-03-11T132439.475.png" alt="Source Image" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
+            </div>
+            <div style="padding:8px 12px;text-align:center;font-size:.75rem;font-weight:600;color:var(--text-secondary);border-top:1px solid var(--glass-border);">
+              <span style="color:#6366f1;">SOURCE</span> &mdash; 입력 이미지
+            </div>
+          </div>
+          <div class="reveal reveal-delay-2" style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M8 20h22" stroke="rgba(225,29,72,0.4)" stroke-width="2.5" stroke-linecap="round"/><path d="M24 13l7 7-7 7" stroke="rgba(225,29,72,0.4)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span style="font-size:.6rem;font-weight:700;color:var(--accent-create);letter-spacing:1px;">AI GEN</span>
+          </div>
+          <div class="reveal reveal-delay-3" style="border-radius:14px;overflow:hidden;border:1px solid var(--glass-border);box-shadow:var(--shadow-lg);">
+            <video src="images/ai-video/Crop_ver. black_final.mp4" autoplay muted loop playsinline controls style="width:100%;display:block;"></video>
+            <div style="padding:8px 12px;text-align:center;font-size:.75rem;font-weight:600;color:var(--text-secondary);border-top:1px solid var(--glass-border);">
+              <span style="color:#e11d48;">OUTPUT</span> &mdash; AI 생성 모션 영상
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- AI 인플루언서 (AI Influencer) -->
@@ -477,8 +644,56 @@ footer p{color:var(--text-muted);font-size:.85rem}
         <div class="ba-pair reveal reveal-delay-1"><div class="ba-images"><img src="images/ai-influencer/ai_infl_new1.png" alt="AI 인플루언서 1" class="ba-before"></div><div class="ba-label">Daily — Portrait</div></div>
         <div class="ba-pair reveal reveal-delay-2"><div class="ba-images"><img src="images/ai-influencer/ai_infl_new2.jpg" alt="AI 인플루언서 2" class="ba-before"></div><div class="ba-label">Studio — Fashion</div></div>
         <div class="ba-pair reveal reveal-delay-3"><div class="ba-images"><img src="images/ai-influencer/ai_infl_new3.jpg" alt="AI 인플루언서 3" class="ba-before"></div><div class="ba-label">Outdoor — Lifestyle</div></div>
-        <div class="ba-pair reveal reveal-delay-4"><div class="ba-images"><img src="images/ai-influencer/ai_influencer_sample.png" alt="AI 인플루언서 4" class="ba-before"></div><div class="ba-label">Selfie — Street</div></div>
+        <div class="ba-pair reveal reveal-delay-4 ba-pair-highlight" id="ai-infl-source"><div class="ba-images"><img src="images/ai-influencer/image - 2026-03-03T104542.250.png" alt="AI 인플루언서 4" class="ba-before"></div><div class="ba-label">Selfie — Street <span style="font-size:.6rem;color:var(--accent-create);font-weight:700;">&#x25BC; WORKFLOW</span></div></div>
       </div>
+
+      <!-- Image → SNS Meme → AI Video Workflow -->
+      <div class="ai-infl-workflow reveal" style="margin-top:28px;">
+        <div class="workflow-title">
+          <span style="font-size:.7rem;font-weight:700;letter-spacing:1.5px;color:var(--accent-create);text-transform:uppercase;">Content Pipeline</span>
+          <h4 style="font-size:1rem;font-weight:700;margin-top:4px;">이미지 → SNS 밈 영상 → AI 영상 워크플로우</h4>
+          <p style="font-size:.8rem;color:var(--text-secondary);margin-top:4px;">하나의 AI 생성 이미지에서 SNS 밈 영상과 고퀄리티 AI 모션 영상까지 확장하는 파이프라인</p>
+        </div>
+        <div class="workflow-pipeline">
+          <div class="workflow-step workflow-step-source reveal reveal-delay-1">
+            <div class="workflow-step-badge">SOURCE</div>
+            <div class="workflow-media-wrap workflow-media-img">
+              <img src="images/ai-influencer/image - 2026-03-03T104542.250.png" alt="Source Image">
+            </div>
+            <div class="workflow-step-label">AI 생성 이미지</div>
+            <div class="workflow-step-desc">일관된 페르소나의 셀피 이미지</div>
+          </div>
+          <div class="workflow-arrow reveal reveal-delay-1">
+            <svg width="40" height="40" viewBox="0 0 40 40"><path d="M8 20h20M22 13l8 7-8 7" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="workflow-step reveal reveal-delay-2">
+            <div class="workflow-step-badge" style="background:rgba(99,102,241,0.1);color:#6366f1;border-color:rgba(99,102,241,0.3);">MEME</div>
+            <div class="workflow-media-wrap workflow-media-video">
+              <video autoplay muted loop playsinline>
+                <source src="images/ai-influencer/Zayne_Video by zayne_308_DUxh4u3kaQW.mp4" type="video/mp4">
+              </video>
+              <button class="video-sound-btn" onclick="toggleVideoSound(this)" aria-label="Toggle sound"><svg class="icon-muted" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg><svg class="icon-unmuted" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></button>
+            </div>
+            <div class="workflow-step-label">SNS 밈 영상</div>
+            <div class="workflow-step-desc">트렌드 밈/챌린지 포맷에 맞춘 숏폼</div>
+          </div>
+          <div class="workflow-arrow reveal reveal-delay-2">
+            <svg width="40" height="40" viewBox="0 0 40 40"><path d="M8 20h20M22 13l8 7-8 7" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="workflow-step reveal reveal-delay-3">
+            <div class="workflow-step-badge" style="background:rgba(251,191,36,0.1);color:#d97706;border-color:rgba(251,191,36,0.3);">AI VIDEO</div>
+            <div class="workflow-media-wrap workflow-media-video">
+              <video autoplay muted loop playsinline>
+                <source src="images/ai-influencer/kling_20260309_Motion_Control__2233_1.mp4" type="video/mp4">
+              </video>
+              <button class="video-sound-btn" onclick="toggleVideoSound(this)" aria-label="Toggle sound"><svg class="icon-muted" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg><svg class="icon-unmuted" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></button>
+            </div>
+            <div class="workflow-step-label">AI 모션 영상</div>
+            <div class="workflow-step-desc">Kling 모션 컨트롤로 생성한 고퀄리티 영상</div>
+          </div>
+        </div>
+      </div>
+
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px;">
         <div class="ai-infl-step reveal reveal-delay-1"><div class="step-n">STEP 1</div><h5>페르소나 기획</h5><p>타겟 오디언스 분석 기반 캐릭터 설정</p></div>
         <div class="ai-infl-step reveal reveal-delay-2"><div class="step-n">STEP 2</div><h5>AI 이미지 생성</h5><p>일관된 외모의 다양한 씬 이미지</p></div>
@@ -568,6 +783,7 @@ document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 const sections=document.querySelectorAll('section'),navLinks=document.querySelectorAll('.nav-links a');
 const navObs=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){navLinks.forEach(l=>l.classList.remove('active'));const a=document.querySelector(`.nav-links a[href="#${e.target.id}"]`);if(a)a.classList.add('active')}})},{threshold:.3});
 sections.forEach(s=>navObs.observe(s));
+function toggleVideoSound(btn){const video=btn.closest('.workflow-media-wrap').querySelector('video');if(!video)return;if(video.muted){document.querySelectorAll('.workflow-media-video video').forEach(v=>{v.muted=true;const b=v.closest('.workflow-media-wrap')?.querySelector('.video-sound-btn');if(b)b.classList.remove('is-unmuted')});video.muted=false;btn.classList.add('is-unmuted')}else{video.muted=true;btn.classList.remove('is-unmuted')}}
 </script>
 </body>
 </html>
