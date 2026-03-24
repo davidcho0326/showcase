@@ -266,6 +266,13 @@ footer p{color:var(--text-muted);font-size:.85rem}
 .footer-pill{padding:8px 20px;border-radius:20px;font-size:.8rem;font-weight:600;color:#fff}
 @media(max-width:900px){section{padding:100px 24px 60px}.hero-content h1{font-size:2.2rem}.overview-grid,.analysis-grid,.platform-grid,.pipeline-flow,.step-framework,.scenario-flow{grid-template-columns:1fr 1fr}.strategy-row,.content-gen-grid,.screenshot-grid{grid-template-columns:1fr}.pipeline-step::after,.scenario-step::after{display:none}.kg-diagram{height:auto;position:static;display:flex;flex-wrap:wrap;gap:12px;justify-content:center;padding:24px}.kg-center{position:static;transform:none;margin-bottom:16px}.kg-graph-node{position:static}.kg-edges{display:none}}
 @media(max-width:600px){.overview-grid,.analysis-grid,.step-framework,.pipeline-flow,.scenario-flow,.platform-grid{grid-template-columns:1fr}.hero-stages{flex-direction:column;align-items:center}.hero-arrow{display:none}nav{padding:0 16px}.nav-links{display:none}}
+.screenshot-container img,.ba-pair .ba-images img,.bc-ref-thumb-img img,.video-phase-images img,.workflow-media-img img,.ai-infl-img img{cursor:pointer}
+.lightbox-overlay{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);align-items:center;justify-content:center;cursor:zoom-out}
+.lightbox-overlay.active{display:flex}
+.lightbox-overlay img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,0.5);animation:lightboxIn .3s ease}
+@keyframes lightboxIn{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+.lightbox-close{position:absolute;top:20px;right:28px;width:40px;height:40px;border:none;background:rgba(255,255,255,0.15);backdrop-filter:blur(6px);color:#fff;font-size:1.4rem;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.lightbox-close:hover{background:rgba(255,255,255,0.3)}
 </style>
 </head>
 <body>
@@ -440,17 +447,58 @@ footer p{color:var(--text-muted);font-size:.85rem}
       </div>
     </div>
 
-    <div class="screenshot-grid" style="margin-top:24px;">
-      <div class="screenshot-container reveal reveal-delay-1"><img src="images/seeding/seeding_parsing.png" alt="AI 제품 분석" loading="lazy"><div class="screenshot-label">&#x1F4CA; AI 제품 심층 분석 &amp; 기획안</div></div>
-      <div class="screenshot-container reveal reveal-delay-2"><img src="images/seeding/seeding_plan-edit.png" alt="AI 기획안 수정" loading="lazy"><div class="screenshot-label">&#x1F9E0; 소비자 감정 언어 &amp; 전략 생성</div></div>
+    <!-- 수집된 트렌드를 실행 가능한 캠페인으로 -->
+    <div class="reveal" style="margin-top:48px;background:var(--bg-white);border:1px solid var(--glass-border);border-radius:20px;padding:36px 32px;box-shadow:var(--shadow-md);position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent-analyze),#6366f1,var(--accent-kg));"></div>
+      <div style="text-align:center;margin-bottom:28px;">
+        <span style="font-size:.65rem;font-weight:700;letter-spacing:2px;color:var(--accent-analyze);text-transform:uppercase;padding:4px 14px;border-radius:20px;border:1px solid rgba(217,119,6,0.2);background:rgba(217,119,6,0.06);">P.D.A MATRIX</span>
+        <h3 style="font-size:1.25rem;font-weight:800;margin-top:10px;color:var(--text-primary);">수집된 트렌드를 실행 가능한 캠페인으로</h3>
+        <p style="font-size:.88rem;color:var(--text-secondary);margin-top:6px;">Stage 1이 <strong style="color:var(--accent-collect);">"무엇이 뜨는가"</strong>를 알려주면, P.D.A 매트릭스가 <strong style="color:var(--accent-analyze);">"어떻게 공략할지"</strong>를 설계합니다</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px;">
+        <div class="reveal reveal-delay-1" style="text-align:center;padding:24px 16px;border-radius:14px;border:1px solid var(--glass-border);background:var(--glass-bg);transition:transform .3s,box-shadow .3s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#a78bfa);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:1.1rem;color:#fff;font-weight:800;">P</div>
+          <h4 style="font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:4px;">Persona</h4>
+          <div style="font-size:.78rem;color:var(--accent-analyze);font-weight:600;margin-bottom:8px;">누구에게</div>
+          <p style="font-size:.8rem;color:var(--text-secondary);line-height:1.6;">타겟 고객을 자동 세분화<br>라이프스타일 기반 프로파일링</p>
+        </div>
+        <div class="reveal reveal-delay-2" style="text-align:center;padding:24px 16px;border-radius:14px;border:1px solid var(--glass-border);background:var(--glass-bg);transition:transform .3s,box-shadow .3s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#d97706);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:1.1rem;color:#fff;font-weight:800;">D</div>
+          <h4 style="font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:4px;">Desire</h4>
+          <div style="font-size:.78rem;color:var(--accent-analyze);font-weight:600;margin-bottom:8px;">무엇을 원하는가</div>
+          <p style="font-size:.8rem;color:var(--text-secondary);line-height:1.6;">핵심 욕구 &amp; 감정 트리거 매핑<br>소구점별 메시지 자동 설계</p>
+        </div>
+        <div class="reveal reveal-delay-3" style="text-align:center;padding:24px 16px;border-radius:14px;border:1px solid var(--glass-border);background:var(--glass-bg);transition:transform .3s,box-shadow .3s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#e11d48,#fb7185);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:1.1rem;color:#fff;font-weight:800;">A</div>
+          <h4 style="font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:4px;">Awareness</h4>
+          <div style="font-size:.78rem;color:var(--accent-analyze);font-weight:600;margin-bottom:8px;">어떤 단계에서</div>
+          <p style="font-size:.8rem;color:var(--text-secondary);line-height:1.6;">인지 &rarr; 고려 &rarr; 구매 퍼널 매핑<br>단계별 차별화 메시지 전략</p>
+        </div>
+      </div>
+      <p style="font-size:.85rem;color:var(--text-secondary);text-align:center;line-height:1.7;margin-bottom:20px;">P &times; D &times; A 조합으로 광고 세트당 <strong style="color:var(--accent-analyze);">5~15개 다각화 소재</strong>를 자동 생성하고,<br>META GEM/Andromeda 알고리즘에 최적화된 <strong style="color:var(--accent-analyze);">7~14일 주기 교체</strong>를 지원합니다</p>
+      <div style="text-align:center;"><a href="https://fncoifceo.vercel.app/" target="_blank" class="link-btn" style="border-color:rgba(217,119,6,0.3);color:var(--accent-analyze);background:rgba(217,119,6,0.06);">&#x2197; F&amp;CO 전략 보고서 자세히 보기</a></div>
     </div>
-    <div class="screenshot-grid" style="margin-top:24px;">
-      <div class="screenshot-container reveal reveal-delay-1"><img src="images/seeding/seeding_ai-image.png" alt="AI 이미지 생성" loading="lazy"><div class="screenshot-label">&#x2728; AI 이미지 생성 시스템 인터페이스</div></div>
-      <div class="screenshot-container reveal reveal-delay-2"><img src="images/seeding/seeding_review.png" alt="최종 검수" loading="lazy"><div class="screenshot-label">&#x2705; 최종 검수 &amp; 시딩 가이드</div></div>
+
+    <!-- 애자일 / PoC 기반 일하는 방식 -->
+    <div class="reveal" style="margin-top:24px;background:var(--bg-white);border:1px dashed rgba(124,58,237,0.25);border-radius:16px;padding:28px 32px;position:relative;">
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start;">
+        <div style="width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,rgba(124,58,237,0.1),rgba(99,102,241,0.1));display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;">&#x26A1;</div>
+        <div>
+          <h4 style="font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:6px;">애자일 &amp; PoC 기반 — 변화에 민첩하게 대응하는 일하는 방식</h4>
+          <p style="font-size:.85rem;color:var(--text-secondary);line-height:1.7;margin-bottom:14px;">외부 SNS 알고리즘 변경, 새로운 플랫폼 등장, 소비자 행동 변화 등 마케팅 환경은 끊임없이 변합니다.<br>AX팀은 <strong style="color:var(--accent-kg);">주 단위 PoC &rarr; 검증 &rarr; 반영</strong> 사이클로 빠르게 실험하고, 효과가 검증된 것만 시스템에 반영합니다.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <span style="padding:5px 14px;border-radius:20px;font-size:.75rem;font-weight:600;background:rgba(124,58,237,0.06);border:1px solid rgba(124,58,237,0.15);color:var(--accent-kg);">주간 스프린트</span>
+            <span style="padding:5px 14px;border-radius:20px;font-size:.75rem;font-weight:600;background:rgba(124,58,237,0.06);border:1px solid rgba(124,58,237,0.15);color:var(--accent-kg);">PoC 우선 검증</span>
+            <span style="padding:5px 14px;border-radius:20px;font-size:.75rem;font-weight:600;background:rgba(124,58,237,0.06);border:1px solid rgba(124,58,237,0.15);color:var(--accent-kg);">휴먼 인 더 루프</span>
+            <span style="padding:5px 14px;border-radius:20px;font-size:.75rem;font-weight:600;background:rgba(124,58,237,0.06);border:1px solid rgba(124,58,237,0.15);color:var(--accent-kg);">알고리즘 변화 즉시 대응</span>
+            <span style="padding:5px 14px;border-radius:20px;font-size:.75rem;font-weight:600;background:rgba(124,58,237,0.06);border:1px solid rgba(124,58,237,0.15);color:var(--accent-kg);">실패 비용 최소화</span>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="reveal" style="margin-top:32px;">
       <div style="border-radius:16px;overflow:hidden;border:1px solid var(--glass-border);box-shadow:var(--shadow-lg);">
-        <video src="images/bgswap/03112.mp4" autoplay muted loop playsinline controls style="width:100%;display:block;"></video>
+        <video src="images/bgswap/03245.mp4" autoplay muted loop playsinline controls style="width:100%;display:block;"></video>
       </div>
     </div>
   </div>
@@ -777,6 +825,11 @@ footer p{color:var(--text-muted);font-size:.85rem}
   <p style="margin-top:24px;font-size:.75rem;">F&amp;F AX팀</p>
 </footer>
 
+<div id="lightbox" class="lightbox-overlay" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+  <img id="lightbox-img" src="" alt="확대 이미지">
+</div>
+
 <script>
 const observer=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
@@ -784,6 +837,11 @@ const sections=document.querySelectorAll('section'),navLinks=document.querySelec
 const navObs=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){navLinks.forEach(l=>l.classList.remove('active'));const a=document.querySelector(`.nav-links a[href="#${e.target.id}"]`);if(a)a.classList.add('active')}})},{threshold:.3});
 sections.forEach(s=>navObs.observe(s));
 function toggleVideoSound(btn){const video=btn.closest('.workflow-media-wrap').querySelector('video');if(!video)return;if(video.muted){document.querySelectorAll('.workflow-media-video video').forEach(v=>{v.muted=true;const b=v.closest('.workflow-media-wrap')?.querySelector('.video-sound-btn');if(b)b.classList.remove('is-unmuted')});video.muted=false;btn.classList.add('is-unmuted')}else{video.muted=true;btn.classList.remove('is-unmuted')}}
+const lightbox=document.getElementById('lightbox'),lightboxImg=document.getElementById('lightbox-img');
+function openLightbox(src){lightboxImg.src=src;lightbox.classList.add('active');document.body.style.overflow='hidden'}
+function closeLightbox(){lightbox.classList.remove('active');document.body.style.overflow='';lightboxImg.src=''}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
+document.querySelectorAll('.screenshot-container img,.ba-pair .ba-images img,.bc-ref-thumb-img img,.video-phase-images img,.workflow-media-img img,.ai-infl-img img').forEach(img=>{img.addEventListener('click',e=>{e.stopPropagation();openLightbox(img.src)})});
 </script>
 </body>
 </html>
