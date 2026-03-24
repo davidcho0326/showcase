@@ -138,7 +138,7 @@ section{min-height:100vh;padding:120px 60px 80px;position:relative}
 .ba-grid-3{grid-template-columns:repeat(3,1fr)}
 .ba-grid-landscape{grid-template-columns:repeat(2,1fr)}
 .ba-pair-landscape .ba-images{aspect-ratio:16/9}
-.ai-video-pipeline{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:48px}
+.ai-video-pipeline{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:48px}
 .video-phase{padding:28px;border-radius:14px;border:1px solid var(--glass-border);background:var(--bg-white);box-shadow:var(--shadow-sm)}
 .video-phase h4{font-size:.95rem;font-weight:700;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:8px}
 .video-phase h4 .phase-num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--grad-rose);color:#fff;font-size:.7rem;font-weight:700}
@@ -539,8 +539,8 @@ footer p{color:var(--text-muted);font-size:.85rem}
       <p class="ba-desc">현장 촬영 이후에도 착장을 자유롭게 교체할 수 있어 재촬영에 드는 시간과 비용을 절감합니다. 포즈, 조명, 배경은 그대로 유지하면서 의상만 자연스럽게 교체됩니다.</p>
       <div class="ba-grid">
         <div class="ba-pair reveal reveal-delay-1"><div class="ba-images"><span class="ba-before-tag">BEFORE</span><span class="ba-after-tag">AI GENERATED</span><img src="images/tryon/1_input.jpg" alt="착장 변경 전 1" class="ba-before"><img src="images/tryon/1_output.jpg" alt="착장 변경 후 1" class="ba-after"></div><div class="ba-label">Hover to see result</div></div>
-        <div class="ba-pair reveal reveal-delay-2"><div class="ba-images"><span class="ba-before-tag">BEFORE</span><span class="ba-after-tag">AI GENERATED</span><img src="images/tryon/2_input.jpg" alt="착장 변경 전 2" class="ba-before"><img src="images/tryon/2_output.jpg" alt="착장 변경 후 2" class="ba-after"></div><div class="ba-label">Hover to see result</div></div>
-        <div class="ba-pair reveal reveal-delay-3"><div class="ba-images"><span class="ba-before-tag">BEFORE</span><span class="ba-after-tag">AI GENERATED</span><img src="images/tryon/3_input.jpg" alt="착장 변경 전 3" class="ba-before"><img src="images/tryon/3_output.jpg" alt="착장 변경 후 3" class="ba-after"></div><div class="ba-label">Hover to see result</div></div>
+        <div class="ba-pair reveal reveal-delay-2"><div class="ba-images"><span class="ba-before-tag">BEFORE</span><span class="ba-after-tag">AI GENERATED</span><img src="images/tryon/2_input.jpg" alt="착장 변경 전 2" class="ba-before"><img src="images/tryon/2_output.png" alt="착장 변경 후 2" class="ba-after"></div><div class="ba-label">Hover to see result</div></div>
+        <div class="ba-pair reveal reveal-delay-3"><div class="ba-images"><span class="ba-before-tag">BEFORE</span><span class="ba-after-tag">AI GENERATED</span><img src="images/tryon/3_input.jpg" alt="착장 변경 전 3" class="ba-before"><img src="images/tryon/3_output.png" alt="착장 변경 후 3" class="ba-after"></div><div class="ba-label">Hover to see result</div></div>
         <div class="ba-pair reveal reveal-delay-4"><div class="ba-images"><span class="ba-before-tag">BEFORE</span><span class="ba-after-tag">AI GENERATED</span><img src="images/tryon/4_input.jpg" alt="착장 변경 전 4" class="ba-before"><img src="images/tryon/4_output.jpg" alt="착장 변경 후 4" class="ba-after"></div><div class="ba-label">Hover to see result</div></div>
       </div>
     </div>
@@ -628,14 +628,14 @@ footer p{color:var(--text-muted);font-size:.85rem}
           <h4><span class="phase-num">1</span> 사전 준비 (Input)</h4>
           <p>인물, 착장, 배경 이미지를 입력으로 제공합니다</p>
           <div class="video-phase-images">
-            <img src="images/ai-video/inputs/person.jpg" alt="인물 입력" loading="lazy">
+            <img src="images/ai-video/inputs/person.png" alt="인물 입력" loading="lazy">
             <img src="images/ai-video/inputs/clothing.png" alt="착장 입력" loading="lazy">
             <img src="images/ai-video/inputs/background.jpg" alt="배경 입력" loading="lazy">
           </div>
         </div>
         <div class="video-phase reveal reveal-delay-2">
-          <h4><span class="phase-num">2</span> 캐릭터 시트 + 씬 생성</h4>
-          <p>3방향 캐릭터 시트 생성 후 시작/종료 프레임 설계</p>
+          <h4><span class="phase-num">2</span> 시나리오 + 캐릭터 시트</h4>
+          <p>AI가 영상 시나리오를 자동 생성하고<br>3방향 캐릭터 시트 &amp; 씬 프레임 설계</p>
           <div class="video-phase-images">
             <img src="images/ai-video/character_sheet/front.png" alt="정면" loading="lazy">
             <img src="images/ai-video/character_sheet/side.png" alt="측면" loading="lazy">
@@ -643,14 +643,24 @@ footer p{color:var(--text-muted);font-size:.85rem}
           </div>
         </div>
         <div class="video-phase reveal reveal-delay-3">
-          <h4><span class="phase-num">3</span> 영상 합성 + 완성</h4>
-          <p>시작&rarr;종료 프레임 기반 모션 생성, AI BGM 작곡 후 30초 영상 완성</p>
+          <h4><span class="phase-num">3</span> 영상 합성 + AI 편집</h4>
+          <p>프레임 기반 모션 생성 후<br>씬 단위 자동 편집 &amp; 컬러 그레이딩</p>
           <div class="video-phase-images landscape two-col">
             <img src="images/ai-video/scene_example/start_frame.png" alt="시작 프레임" loading="lazy">
             <img src="images/ai-video/scene_example/end_frame.png" alt="종료 프레임" loading="lazy">
           </div>
+          <div style="margin-top:8px;border-radius:10px;overflow:hidden;border:1px solid var(--glass-border);box-shadow:var(--shadow-sm);">
+            <img src="images/ai-video/scene_example/edit.jpeg" alt="AI 편집" loading="lazy" style="width:100%;display:block;object-fit:cover;">
+          </div>
+        </div>
+        <div class="video-phase reveal reveal-delay-4">
+          <h4><span class="phase-num">4</span> 최종 아웃풋 (Brand Film)</h4>
+          <p>AI BGM 작곡 후 30초 브랜드 필름 완성</p>
+          <div style="border-radius:10px;overflow:hidden;border:1px solid var(--glass-border);box-shadow:var(--shadow-md);">
+            <video src="images/ai-video/final_video_with_audio.mp4" autoplay loop playsinline controls style="width:100%;display:block;"></video>
+          </div>
           <div style="margin-top:10px;padding:10px;border-radius:8px;background:rgba(225,29,72,0.04);border:1px solid rgba(225,29,72,0.1);text-align:center;">
-            <span style="font-size:.8rem;color:var(--accent-create);font-weight:600;">Output: 30초 브랜드 필름</span>
+            <span style="font-size:.8rem;color:var(--accent-create);font-weight:600;">Final Output: 30초 브랜드 필름</span>
           </div>
         </div>
       </div>
