@@ -119,6 +119,17 @@ section{min-height:100vh;padding:120px 60px 80px;position:relative}
 .content-feature{padding:28px;background:var(--bg-white)}
 .content-feature h4{font-size:1rem;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px;color:var(--text-primary)}
 .content-feature h4::before{content:'';width:4px;height:20px;border-radius:2px;background:var(--grad-rose)}
+.case-study-card{margin-top:36px;display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center;background:linear-gradient(135deg,#fff 0%,#fff7f8 100%);border:1px solid rgba(225,29,72,0.16);border-radius:18px;padding:30px;box-shadow:var(--shadow-md)}
+.case-study-kicker{display:inline-flex;align-items:center;gap:8px;padding:5px 12px;border-radius:20px;background:rgba(225,29,72,0.08);border:1px solid rgba(225,29,72,0.16);color:var(--accent-create);font-size:.7rem;font-weight:800;letter-spacing:.8px;text-transform:uppercase;margin-bottom:12px}
+.case-study-card h3{font-size:1.35rem;font-weight:800;line-height:1.35;margin-bottom:10px;color:var(--text-primary)}
+.case-study-card p{font-size:.9rem;color:var(--text-secondary);line-height:1.75}
+.case-study-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:18px 0}
+.case-study-step{padding:12px;border-radius:12px;background:var(--bg-white);border:1px solid rgba(225,29,72,0.12)}
+.case-study-step b{display:block;font-size:.78rem;color:var(--text-primary);margin-bottom:4px}
+.case-study-step span{display:block;font-size:.68rem;color:var(--text-muted);line-height:1.45}
+.case-study-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.case-study-preview{border-radius:16px;overflow:hidden;background:var(--bg-white);border:1px solid var(--glass-border);box-shadow:var(--shadow-lg)}
+.case-study-preview img{width:100%;display:block;aspect-ratio:2/3;object-fit:cover;object-position:top}
 .ba-showcase{margin-top:48px}
 .ba-showcase h3{font-size:1.3rem;font-weight:700;margin-bottom:8px;color:var(--text-primary);display:flex;align-items:center;gap:10px}
 .ba-showcase h3 .ba-badge{font-size:.65rem;font-weight:700;padding:3px 10px;border-radius:12px;letter-spacing:1px}
@@ -217,7 +228,8 @@ section{min-height:100vh;padding:120px 60px 80px;position:relative}
 .video-sound-btn.is-unmuted .icon-muted{display:none}
 .video-sound-btn.is-unmuted .icon-unmuted{display:block}
 @media(max-width:1100px){.workflow-pipeline{grid-template-columns:1fr;gap:0}.workflow-arrow{transform:rotate(90deg);padding:4px 0}}
-@media(max-width:900px){.ba-grid,.ba-grid-3{grid-template-columns:repeat(2,1fr)}.ai-video-pipeline{grid-template-columns:1fr}.ai-infl-row{grid-template-columns:1fr}.ba-grid-landscape{grid-template-columns:1fr}}
+@media(max-width:900px){.ba-grid,.ba-grid-3{grid-template-columns:repeat(2,1fr)}.ai-video-pipeline{grid-template-columns:1fr}.ai-infl-row{grid-template-columns:1fr}.ba-grid-landscape{grid-template-columns:1fr}.case-study-card{grid-template-columns:1fr}.case-study-flow{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.case-study-flow{grid-template-columns:1fr}}
 @media(max-width:600px){.ba-grid,.ba-grid-3,.ba-grid-landscape{grid-template-columns:1fr}}
 .collect-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:48px;margin-bottom:48px}
 .collect-card{border-radius:16px;overflow:hidden;border:1px solid var(--glass-border);background:var(--bg-white);box-shadow:var(--shadow-md);transition:transform .3s,box-shadow .3s}
@@ -532,6 +544,28 @@ footer p{color:var(--text-muted);font-size:.85rem}
       </div>
       <div class="glass-card content-feature reveal reveal-delay-3"><h4>생성 자동화 파이프라인</h4><p style="font-size:.85rem;color:var(--text-secondary);">Claude Code + Image Gen API 기반으로 프롬프트 생성부터 이미지 출력까지 자동화합니다. 대량 배치 처리로 수백 장의 콘텐츠를 빠르게 생성합니다.</p><div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;"><span style="padding:4px 10px;border-radius:6px;font-size:.75rem;background:rgba(251,113,133,0.1);border:1px solid rgba(251,113,133,0.2);color:var(--accent-create);">Claude Code</span><span style="padding:4px 10px;border-radius:6px;font-size:.75rem;background:rgba(251,113,133,0.1);border:1px solid rgba(251,113,133,0.2);color:var(--accent-create);">Batch Processing</span><span style="padding:4px 10px;border-radius:6px;font-size:.75rem;background:rgba(251,113,133,0.1);border:1px solid rgba(251,113,133,0.2);color:var(--accent-create);">API Pipeline</span></div></div>
       <div class="glass-card content-feature reveal reveal-delay-4"><h4>검수 자동화 &amp; 피드백 루프</h4><p style="font-size:.85rem;color:var(--text-secondary);">생성 결과물을 자동 검수하고, 유저 피드백을 Claude Code 스킬에 반영하여 생성 품질을 지속적으로 개선합니다. 피드백이 축적될수록 프롬프트와 파이프라인이 자동으로 고도화됩니다.</p><div style="margin-top:12px;padding:12px;border-radius:8px;background:rgba(251,113,133,0.04);border:1px solid rgba(251,113,133,0.1);font-size:.8rem;"><div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;"><span style="color:var(--accent-create);font-weight:600;">Feedback Loop</span></div><div style="color:var(--text-secondary);">생성 &rarr; 검수 &rarr; 유저 피드백 &rarr; 스킬 자동 개선 &rarr; 재생성</div></div></div>
+    </div>
+
+    <!-- Live Case Study — Beauty UGC Campaign Planning -->
+    <div class="case-study-card reveal">
+      <div>
+        <div class="case-study-kicker">LIVE EXAMPLE · BEAUTY UGC</div>
+        <h3>BANILA CO 리뉴얼 화이트 쿠션<br>전략 리포트 &rarr; 원샷 콘티 &rarr; AI 영상화 준비</h3>
+        <p>FNCO 쿠션 UGC 고성과/저성과 샘플을 VLM, TRIBE, Gemini 2차 코딩으로 분석해 성공 문법을 도출하고, BANILA CO 올영세일 숏폼 가이드에 맞춰 60초 전략안과 GPT Image 2 원샷 스토리보드까지 연결한 사례입니다. 상세 분석과 전체 콘티는 외부 리포트로 분리했습니다.</p>
+        <div class="case-study-flow">
+          <div class="case-study-step"><b>1. 분석</b><span>20개 UGC<br>고성과/저성과 비교</span></div>
+          <div class="case-study-step"><b>2. 전략</b><span>구체적 긴장<br>제품 증거 설계</span></div>
+          <div class="case-study-step"><b>3. 콘티</b><span>GPT Image 2<br>원샷 10컷 보드</span></div>
+          <div class="case-study-step"><b>4. Next</b><span>AI 영상 모델<br>3-5초 클립화</span></div>
+        </div>
+        <div class="case-study-actions">
+          <a href="https://fnco-plan.vercel.app/reports/banila-white-cushion-strategy/" target="_blank" class="link-btn" style="border-color:rgba(225,29,72,0.3);color:var(--accent-create);background:rgba(225,29,72,0.06);">&#x2197; 전략 리포트 보기</a>
+          <a href="https://fnco-plan.vercel.app/" target="_blank" class="link-btn" style="border-color:rgba(99,102,241,0.25);color:#6366f1;background:rgba(99,102,241,0.06);">&#x2197; 리포트 허브 보기</a>
+        </div>
+      </div>
+      <div class="case-study-preview">
+        <img src="images/case-studies/banila-one-shot-storyboard.jpg" alt="BANILA CO 원샷 스토리보드 프리뷰" loading="lazy">
+      </div>
     </div>
 
     <!-- F&F AI Studio (Live Product) -->
