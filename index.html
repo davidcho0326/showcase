@@ -534,6 +534,20 @@ footer p{color:var(--text-muted);font-size:.85rem}
       <div class="glass-card content-feature reveal reveal-delay-4"><h4>검수 자동화 &amp; 피드백 루프</h4><p style="font-size:.85rem;color:var(--text-secondary);">생성 결과물을 자동 검수하고, 유저 피드백을 Claude Code 스킬에 반영하여 생성 품질을 지속적으로 개선합니다. 피드백이 축적될수록 프롬프트와 파이프라인이 자동으로 고도화됩니다.</p><div style="margin-top:12px;padding:12px;border-radius:8px;background:rgba(251,113,133,0.04);border:1px solid rgba(251,113,133,0.1);font-size:.8rem;"><div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;"><span style="color:var(--accent-create);font-weight:600;">Feedback Loop</span></div><div style="color:var(--text-secondary);">생성 &rarr; 검수 &rarr; 유저 피드백 &rarr; 스킬 자동 개선 &rarr; 재생성</div></div></div>
     </div>
 
+    <!-- F&F AI Studio (Live Product) -->
+    <div class="ba-showcase reveal">
+      <h3>F&amp;F AI Studio <span class="ba-badge" style="background:rgba(74,222,128,0.12);color:#22c55e;border:1px solid rgba(74,222,128,0.3);">LIVE</span></h3>
+      <p class="ba-desc">아래에 소개된 착장 변경&middot;배경 교체&middot;브랜드컷&middot;AI 인플루언서 생성을 한 곳에서 사용하는 마케팅본부 AI 이미지 생성 플랫폼입니다. 실제 운영 중인 라이브 서비스로, fnfcorp.com 계정으로 바로 접속할 수 있습니다.</p>
+      <div style="display:flex;gap:8px;margin:4px 0 22px;flex-wrap:wrap;">
+        <span style="padding:4px 10px;border-radius:6px;font-size:.75rem;background:rgba(251,113,133,0.1);border:1px solid rgba(251,113,133,0.2);color:var(--accent-create);">브랜드컷</span>
+        <span style="padding:4px 10px;border-radius:6px;font-size:.75rem;background:rgba(251,113,133,0.1);border:1px solid rgba(251,113,133,0.2);color:var(--accent-create);">착장 변경</span>
+        <span style="padding:4px 10px;border-radius:6px;font-size:.75rem;background:rgba(251,113,133,0.1);border:1px solid rgba(251,113,133,0.2);color:var(--accent-create);">배경 교체</span>
+        <span style="padding:4px 10px;border-radius:6px;font-size:.75rem;background:rgba(251,113,133,0.1);border:1px solid rgba(251,113,133,0.2);color:var(--accent-create);">AI 인플루언서</span>
+        <span style="padding:4px 10px;border-radius:6px;font-size:.75rem;background:rgba(251,113,133,0.1);border:1px solid rgba(251,113,133,0.2);color:var(--accent-create);">셀카</span>
+      </div>
+      <div style="text-align:center;margin-top:8px;" class="reveal"><a href="https://fnf-studio.fnf.co.kr/login" target="_blank" class="link-btn">&#x2197; F&amp;F AI Studio 접속</a></div>
+    </div>
+
     <!-- 착장 변경 (Virtual Try-On) -->
     <div class="ba-showcase reveal">
       <h3>착장 변경 <span class="ba-badge" style="background:rgba(74,222,128,0.12);color:#22c55e;border:1px solid rgba(74,222,128,0.3);">RELEASED</span></h3>
@@ -623,11 +637,11 @@ footer p{color:var(--text-muted);font-size:.85rem}
     <!-- AI 영상 제작 (AI Video Production) -->
     <div class="ba-showcase reveal">
       <h3>AI 영상 제작 <span class="ba-badge" style="background:rgba(225,29,72,0.1);color:#e11d48;border:1px solid rgba(225,29,72,0.3);">DEVELOPMENT</span></h3>
-      <p class="ba-desc">인물&middot;착장&middot;배경&middot;콘셉트 프롬프트만 입력하면, AI 에이전트가 캐릭터 설계 &rarr; 시나리오 기획 &rarr; 씬 생성 &rarr; 영상 합성 &rarr; BGM 작곡 &rarr; 품질 검수까지 9단계 파이프라인을 자율 실행하여 30초 광고 브랜드 필름을 완성합니다.</p>
+      <p class="ba-desc">콘셉트 프롬프트 한 줄을 입력하면, <strong>Claude Code</strong>가 캐릭터 설계 &rarr; 스토리보드 기획 &rarr; 씬별 Start/End 키프레임 생성 &rarr; 영상화 &rarr; 검증 &rarr; 어셈블 &rarr; 오디오 디자인 &rarr; 믹싱 &rarr; 품질 리포트까지 9단계 파이프라인을 자율 오케스트레이션합니다. <strong>Gemini</strong>가 캐릭터 시트&middot;키프레임을, <strong>Kling</strong>이 씬 영상을, AI가 BGM&middot;SFX를 생성하여 30초 광고 브랜드 필름을 완성합니다.</p>
       <div class="ai-video-pipeline">
         <div class="video-phase reveal reveal-delay-1">
           <h4><span class="phase-num">1</span> 사전 준비 (Input)</h4>
-          <p>인물, 착장, 배경 이미지를 입력으로 제공합니다</p>
+          <p>인물&middot;착장&middot;배경 레퍼런스와<br>콘셉트 프롬프트를 입력합니다</p>
           <div class="video-phase-images">
             <img src="images/ai-video/inputs/person.png" alt="인물 입력" loading="lazy">
             <img src="images/ai-video/inputs/clothing.png" alt="착장 입력" loading="lazy">
@@ -636,7 +650,7 @@ footer p{color:var(--text-muted);font-size:.85rem}
         </div>
         <div class="video-phase reveal reveal-delay-2">
           <h4><span class="phase-num">2</span> 시나리오 + 캐릭터 시트</h4>
-          <p>AI가 영상 시나리오를 자동 생성하고<br>3방향 캐릭터 시트 &amp; 씬 프레임 설계</p>
+          <p>Gemini가 3-뷰 캐릭터 시트와 스토리보드 생성<br>6씬 &times; 5초, 씬별 Start/End&middot;모션&middot;오디오 기술</p>
           <div class="video-phase-images">
             <img src="images/ai-video/character_sheet/front.png" alt="정면" loading="lazy">
             <img src="images/ai-video/character_sheet/side.png" alt="측면" loading="lazy">
@@ -645,7 +659,7 @@ footer p{color:var(--text-muted);font-size:.85rem}
         </div>
         <div class="video-phase reveal reveal-delay-3">
           <h4><span class="phase-num">3</span> 영상 합성 + AI 편집</h4>
-          <p>프레임 기반 모션 생성 후<br>씬 단위 자동 편집 &amp; 컬러 그레이딩</p>
+          <p>씬별 Start/End 키프레임(Gemini) &rarr; Kling I2V<br>씬당 3회 생성 후 자동 검증&middot;큐레이션</p>
           <div class="video-phase-images landscape two-col">
             <img src="images/ai-video/scene_example/start_frame.png" alt="시작 프레임" loading="lazy">
             <img src="images/ai-video/scene_example/end_frame.png" alt="종료 프레임" loading="lazy">
@@ -656,7 +670,7 @@ footer p{color:var(--text-muted);font-size:.85rem}
         </div>
         <div class="video-phase reveal reveal-delay-4">
           <h4><span class="phase-num">4</span> 최종 아웃풋 (Brand Film)</h4>
-          <p>AI BGM 작곡 후 30초 브랜드 필름 완성</p>
+          <p>어셈블 &rarr; AI BGM&middot;SFX 믹싱 &rarr; 품질 리포트<br>30초 브랜드 필름 완성</p>
           <div style="border-radius:10px;overflow:hidden;border:1px solid var(--glass-border);box-shadow:var(--shadow-md);">
             <video src="images/ai-video/final_video_with_audio.mp4" autoplay loop playsinline controls style="width:100%;display:block;"></video>
           </div>
@@ -664,6 +678,69 @@ footer p{color:var(--text-muted);font-size:.85rem}
             <span style="font-size:.8rem;color:var(--accent-create);font-weight:600;">Final Output: 30초 브랜드 필름</span>
           </div>
         </div>
+      </div>
+
+      <!-- 실제 제작 과정 상세 (Production Pipeline) -->
+      <div class="reveal" style="margin-top:40px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap;">
+          <span style="font-size:.65rem;font-weight:700;letter-spacing:1.5px;color:#e11d48;text-transform:uppercase;padding:3px 10px;border-radius:8px;background:rgba(225,29,72,0.06);border:1px solid rgba(225,29,72,0.18);">PRODUCTION PIPELINE</span>
+          <span style="font-size:.85rem;color:var(--text-secondary);">콘셉트 한 줄에서 30초 브랜드 필름까지 &mdash; 전 과정을 Claude Code가 자율 오케스트레이션</span>
+        </div>
+        <p style="font-size:.82rem;color:var(--text-secondary);line-height:1.7;margin:0 0 16px;">실제 제작 사례 <strong style="color:var(--accent-create);">&ldquo;Urban Serenity: The Broadway Walk&rdquo;</strong> &mdash; 6씬 &times; 5초, 30초 시네마틱 광고. 각 단계의 중간 산출물(스토리보드 JSON&middot;키프레임&middot;씬 영상&middot;검증 리포트)이 다음 단계의 입력으로 자동 연결됩니다.</p>
+        <div style="display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap;">
+          <span style="padding:4px 12px;border-radius:6px;font-size:.75rem;font-weight:600;background:rgba(225,29,72,0.1);border:1px solid rgba(225,29,72,0.25);color:#e11d48;">Claude Code &middot; Orchestration</span>
+          <span style="padding:4px 12px;border-radius:6px;font-size:.75rem;background:rgba(251,113,133,0.1);border:1px solid rgba(251,113,133,0.2);color:var(--accent-create);">Gemini &middot; 캐릭터/키프레임</span>
+          <span style="padding:4px 12px;border-radius:6px;font-size:.75rem;background:rgba(251,113,133,0.1);border:1px solid rgba(251,113,133,0.2);color:var(--accent-create);">Kling &middot; I2V 영상화</span>
+          <span style="padding:4px 12px;border-radius:6px;font-size:.75rem;background:rgba(251,113,133,0.1);border:1px solid rgba(251,113,133,0.2);color:var(--accent-create);">AI Audio &middot; BGM/SFX</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-bottom:32px;">
+          <div class="reveal reveal-delay-1" style="padding:12px 14px;border-radius:10px;background:var(--bg-white);border:1px solid var(--glass-border);box-shadow:var(--shadow-sm);"><div style="font-size:.65rem;font-weight:700;color:var(--accent-create);letter-spacing:.5px;">STEP 1</div><div style="font-size:.85rem;font-weight:700;margin-top:3px;">콘셉트 &middot; 캐릭터 시트</div><div style="font-size:.72rem;color:var(--text-secondary);margin-top:3px;line-height:1.5;">콘셉트 프롬프트 &rarr; 3-뷰 캐릭터 시트 + 사양 JSON</div></div>
+          <div class="reveal reveal-delay-1" style="padding:12px 14px;border-radius:10px;background:var(--bg-white);border:1px solid var(--glass-border);box-shadow:var(--shadow-sm);"><div style="font-size:.65rem;font-weight:700;color:var(--accent-create);letter-spacing:.5px;">STEP 2</div><div style="font-size:.85rem;font-weight:700;margin-top:3px;">스토리보드 기획</div><div style="font-size:.72rem;color:var(--text-secondary);margin-top:3px;line-height:1.5;">scenario.json &mdash; 6씬, 씬별 Start/End&middot;모션&middot;오디오&middot;카메라</div></div>
+          <div class="reveal reveal-delay-2" style="padding:12px 14px;border-radius:10px;background:var(--bg-white);border:1px solid var(--glass-border);box-shadow:var(--shadow-sm);"><div style="font-size:.65rem;font-weight:700;color:var(--accent-create);letter-spacing:.5px;">STEP 3</div><div style="font-size:.85rem;font-weight:700;margin-top:3px;">씬별 키프레임 생성</div><div style="font-size:.72rem;color:var(--text-secondary);margin-top:3px;line-height:1.5;">Gemini로 씬마다 Start/End 프레임 이미지화 (12장)</div></div>
+          <div class="reveal reveal-delay-2" style="padding:12px 14px;border-radius:10px;background:var(--bg-white);border:1px solid var(--glass-border);box-shadow:var(--shadow-sm);"><div style="font-size:.65rem;font-weight:700;color:var(--accent-create);letter-spacing:.5px;">STEP 4</div><div style="font-size:.85rem;font-weight:700;margin-top:3px;">씬 영상화 (Kling I2V)</div><div style="font-size:.72rem;color:var(--text-secondary);margin-top:3px;line-height:1.5;">키프레임 기반 씬당 3회 생성 &rarr; 후보 18종</div></div>
+          <div class="reveal reveal-delay-3" style="padding:12px 14px;border-radius:10px;background:var(--bg-white);border:1px solid var(--glass-border);box-shadow:var(--shadow-sm);"><div style="font-size:.65rem;font-weight:700;color:var(--accent-create);letter-spacing:.5px;">STEP 5</div><div style="font-size:.85rem;font-weight:700;margin-top:3px;">자동 검증 &middot; 큐레이션</div><div style="font-size:.72rem;color:var(--text-secondary);margin-top:3px;line-height:1.5;">씬별 점수화 &rarr; 베스트 컷 선별 + 씬 순서 최적화</div></div>
+          <div class="reveal reveal-delay-3" style="padding:12px 14px;border-radius:10px;background:var(--bg-white);border:1px solid var(--glass-border);box-shadow:var(--shadow-sm);"><div style="font-size:.65rem;font-weight:700;color:var(--accent-create);letter-spacing:.5px;">STEP 6</div><div style="font-size:.85rem;font-weight:700;margin-top:3px;">어셈블</div><div style="font-size:.72rem;color:var(--text-secondary);margin-top:3px;line-height:1.5;">선택된 씬을 30초 무음 영상으로 결합</div></div>
+          <div class="reveal reveal-delay-4" style="padding:12px 14px;border-radius:10px;background:var(--bg-white);border:1px solid var(--glass-border);box-shadow:var(--shadow-sm);"><div style="font-size:.65rem;font-weight:700;color:var(--accent-create);letter-spacing:.5px;">STEP 7</div><div style="font-size:.85rem;font-weight:700;margin-top:3px;">오디오 디자인</div><div style="font-size:.72rem;color:var(--text-secondary);margin-top:3px;line-height:1.5;">sound_plan 기반 BGM 3종 + SFX 10종 생성</div></div>
+          <div class="reveal reveal-delay-4" style="padding:12px 14px;border-radius:10px;background:var(--bg-white);border:1px solid var(--glass-border);box-shadow:var(--shadow-sm);"><div style="font-size:.65rem;font-weight:700;color:var(--accent-create);letter-spacing:.5px;">STEP 8</div><div style="font-size:.85rem;font-weight:700;margin-top:3px;">믹싱 &middot; 익스포트</div><div style="font-size:.72rem;color:var(--text-secondary);margin-top:3px;line-height:1.5;">타임라인 동기화 후 최종 영상 합성</div></div>
+          <div class="reveal reveal-delay-4" style="padding:12px 14px;border-radius:10px;background:var(--bg-white);border:1px solid var(--glass-border);box-shadow:var(--shadow-sm);"><div style="font-size:.65rem;font-weight:700;color:var(--accent-create);letter-spacing:.5px;">STEP 9</div><div style="font-size:.85rem;font-weight:700;margin-top:3px;">품질 리포트</div><div style="font-size:.72rem;color:var(--text-secondary);margin-top:3px;line-height:1.5;">씬별 진단&middot;개선점 자동 작성 (Overall 7.8/10)</div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;">
+          <span style="font-size:.65rem;font-weight:700;letter-spacing:1.5px;color:#6366f1;text-transform:uppercase;padding:3px 10px;border-radius:8px;background:rgba(99,102,241,0.06);border:1px solid rgba(99,102,241,0.18);">STORYBOARD &rarr; SCENE</span>
+          <span style="font-size:.85rem;color:var(--text-secondary);">스토리보드 기술(scenario.json)이 씬별 Start/End 키프레임으로 생성됩니다</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;">
+          <div class="reveal reveal-delay-1" style="border-radius:14px;overflow:hidden;border:1px solid var(--glass-border);box-shadow:var(--shadow-md);background:var(--bg-white);">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--glass-border);">
+              <div style="position:relative;aspect-ratio:16/10;overflow:hidden;"><img src="images/ai-video/storyboard/scene0_start.png" alt="Scene 0 시작 프레임" loading="lazy" style="width:100%;height:100%;object-fit:cover;"><span style="position:absolute;top:6px;left:6px;font-size:.58rem;font-weight:700;color:#fff;background:rgba(99,102,241,.85);padding:2px 7px;border-radius:5px;">START</span></div>
+              <div style="position:relative;aspect-ratio:16/10;overflow:hidden;"><img src="images/ai-video/storyboard/scene0_end.png" alt="Scene 0 종료 프레임" loading="lazy" style="width:100%;height:100%;object-fit:cover;"><span style="position:absolute;top:6px;left:6px;font-size:.58rem;font-weight:700;color:#fff;background:rgba(225,29,72,.85);padding:2px 7px;border-radius:5px;">END</span></div>
+            </div>
+            <div style="padding:10px 12px;border-top:1px solid var(--glass-border);">
+              <div style="font-size:.78rem;font-weight:700;">Scene 0 &middot; The Intersection</div>
+              <div style="font-size:.72rem;color:var(--text-secondary);margin-top:2px;line-height:1.5;">카메라가 좌&rarr;우로 패닝하며 택시를 따라가 정지한 인물을 드러냄</div>
+            </div>
+          </div>
+          <div class="reveal reveal-delay-2" style="border-radius:14px;overflow:hidden;border:1px solid var(--glass-border);box-shadow:var(--shadow-md);background:var(--bg-white);">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--glass-border);">
+              <div style="position:relative;aspect-ratio:16/10;overflow:hidden;"><img src="images/ai-video/storyboard/scene1_start.png" alt="Scene 1 시작 프레임" loading="lazy" style="width:100%;height:100%;object-fit:cover;"><span style="position:absolute;top:6px;left:6px;font-size:.58rem;font-weight:700;color:#fff;background:rgba(99,102,241,.85);padding:2px 7px;border-radius:5px;">START</span></div>
+              <div style="position:relative;aspect-ratio:16/10;overflow:hidden;"><img src="images/ai-video/storyboard/scene1_end.png" alt="Scene 1 종료 프레임" loading="lazy" style="width:100%;height:100%;object-fit:cover;"><span style="position:absolute;top:6px;left:6px;font-size:.58rem;font-weight:700;color:#fff;background:rgba(225,29,72,.85);padding:2px 7px;border-radius:5px;">END</span></div>
+            </div>
+            <div style="padding:10px 12px;border-top:1px solid var(--glass-border);">
+              <div style="font-size:.78rem;font-weight:700;">Scene 1 &middot; The Crossing</div>
+              <div style="font-size:.72rem;color:var(--text-secondary);margin-top:2px;line-height:1.5;">카메라가 뒤로 달리(dolly-out)하며 횡단보도를 걷는 인물을 트래킹</div>
+            </div>
+          </div>
+          <div class="reveal reveal-delay-3" style="border-radius:14px;overflow:hidden;border:1px solid var(--glass-border);box-shadow:var(--shadow-md);background:var(--bg-white);">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--glass-border);">
+              <div style="position:relative;aspect-ratio:16/10;overflow:hidden;"><img src="images/ai-video/storyboard/scene4_start.png" alt="Scene 4 시작 프레임" loading="lazy" style="width:100%;height:100%;object-fit:cover;"><span style="position:absolute;top:6px;left:6px;font-size:.58rem;font-weight:700;color:#fff;background:rgba(99,102,241,.85);padding:2px 7px;border-radius:5px;">START</span></div>
+              <div style="position:relative;aspect-ratio:16/10;overflow:hidden;"><img src="images/ai-video/storyboard/scene4_end.png" alt="Scene 4 종료 프레임" loading="lazy" style="width:100%;height:100%;object-fit:cover;"><span style="position:absolute;top:6px;left:6px;font-size:.58rem;font-weight:700;color:#fff;background:rgba(225,29,72,.85);padding:2px 7px;border-radius:5px;">END</span></div>
+            </div>
+            <div style="padding:10px 12px;border-top:1px solid var(--glass-border);">
+              <div style="font-size:.78rem;font-weight:700;">Scene 4 &middot; The Rush <span style="font-size:.6rem;color:#22c55e;font-weight:700;">BEST 9.0</span></div>
+              <div style="font-size:.72rem;color:var(--text-secondary);margin-top:2px;line-height:1.5;">고정 로우앵글 &mdash; 인물이 미들샷에서 익스트림 클로즈업으로 프레임 통과</div>
+            </div>
+          </div>
+        </div>
+        <p style="font-size:.78rem;color:var(--text-muted);line-height:1.7;margin:16px 0 0;text-align:center;">중간 산출물: 키프레임 12장 &middot; 씬 영상 18종 생성 후 자동 큐레이션 &middot; BGM 3종 / SFX 10종 &middot; 품질 리포트 자동 작성</p>
       </div>
 
       <!-- Image to Video 사례 -->
