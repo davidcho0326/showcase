@@ -97,6 +97,10 @@ section{margin-bottom:72px}
 .demo .demo-caption{padding:14px 18px;border-top:1px solid var(--border)}
 .demo .demo-caption h4{font-size:.95rem;font-weight:700;margin-bottom:4px}
 .demo .demo-caption p{font-size:.8rem;color:var(--text-secondary)}
+.demo.feature{grid-column:1/-1;border:2px solid rgba(225,29,72,0.25);box-shadow:var(--shadow-md)}
+.demo.feature .demo-caption{background:linear-gradient(180deg,#fff7f9 0%,#fff 100%)}
+.demo.feature .demo-caption h4{font-size:1.05rem}
+.demo .ribbon{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:10px;background:var(--grad-rose);color:#fff;margin-right:8px;vertical-align:middle}
 
 /* Conclusion */
 .conclusion{background:var(--bg-alt);border:1px solid var(--border);border-radius:16px;padding:32px}
@@ -250,6 +254,15 @@ footer{padding:32px 40px;text-align:center;color:var(--text-muted);font-size:.78
   <h2 class="s-title">실제 자동화 사례 영상</h2>
   <p class="s-sub">에이전트가 코드/JSON으로 만든 결과. 두 가지 패턴.</p>
   <div class="demo-grid">
+    <div class="demo feature">
+      <video controls preload="metadata" muted poster="https://video-research-lilac.vercel.app/assets/rm_final_poster.jpg">
+        <source src="https://video-research-lilac.vercel.app/assets/rm_final.mp4" type="video/mp4">
+      </video>
+      <div class="demo-caption">
+        <h4><span class="ribbon">⭐ FINAL</span>F&amp;F AX 파이널 마스터 — 모든 씬을 한 컴포지션으로</h4>
+        <p>Intro · Title · Timeline · KPI · Brandcut · Knowledge Graph 모든 씬을 한 React 컴포지션으로 연결한 종합 마스터본. <b>92초 / 2218×1440 @ 50fps</b> 고해상도로 렌더 후 720p로 압축(177MB → 6MB, -96.6%). Claude Code가 리소스 영상 녹화·그래픽·컷 순서를 잡고, Remotion이 합성·렌더.</p>
+      </div>
+    </div>
     <div class="demo">
       <video controls preload="metadata" muted>
         <source src="https://video-research-lilac.vercel.app/assets/rm_data_report.mp4" type="video/mp4">
