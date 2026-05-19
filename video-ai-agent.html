@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Agent로 영상 편집 — 마케팅 AX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg-white:#ffffff;--bg-alt:#f9fafb;--bg-hero:#fafaff;
+  --border:#e5e7eb;--text-primary:#1f2937;--text-secondary:#6b7280;--text-muted:#9ca3af;
+  --accent-rose:#e11d48;--accent-amber:#d97706;--accent-teal:#0d9488;--accent-kg:#7c3aed;--accent-indigo:#6366f1;
+  --grad-indigo:linear-gradient(135deg,#6366f1,#c084fc,#f472b6);
+  --grad-rose:linear-gradient(135deg,#fb7185,#e11d48);
+  --grad-teal:linear-gradient(135deg,#14b8a6,#06b6d4);
+  --grad-amber:linear-gradient(135deg,#f59e0b,#d97706);
+  --shadow-sm:0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md:0 4px 16px rgba(0,0,0,0.06);
+  --shadow-lg:0 12px 40px rgba(0,0,0,0.08);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-family:'Noto Sans KR','Inter',-apple-system,sans-serif;background:var(--bg-white);color:var(--text-primary);line-height:1.7;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.nav-brand{font-weight:800;font-size:1.1rem;background:var(--grad-indigo);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-brand a{text-decoration:none;color:inherit;background:inherit;-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-links{display:flex;gap:8px}
+.nav-links a{color:var(--text-secondary);text-decoration:none;font-size:.82rem;font-weight:500;padding:6px 14px;border-radius:20px;transition:all .3s}
+.nav-links a:hover,.nav-links a.active{color:var(--text-primary);background:rgba(99,102,241,0.06)}
+.nav-credit{font-size:.75rem;color:var(--text-muted)}
+
+.wrap{max-width:1080px;margin:0 auto;padding:120px 40px 80px}
+section{margin-bottom:72px}
+
+/* Hero */
+.hero{text-align:center;padding:32px 0 16px}
+.hero-tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:20px;border:1px solid rgba(225,29,72,0.2);background:rgba(225,29,72,0.06);color:var(--accent-rose);margin-bottom:18px}
+.hero h1{font-size:3rem;font-weight:900;line-height:1.15;margin-bottom:14px;letter-spacing:-1.5px}
+.hero h1 span{background:var(--grad-rose);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero .sub{font-size:1.05rem;color:var(--text-secondary);max-width:720px;margin:0 auto 28px}
+.hero-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.hero-links a{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:10px;text-decoration:none;font-weight:600;font-size:.88rem;transition:all .25s}
+.hero-links a.primary{background:var(--grad-rose);color:#fff;box-shadow:var(--shadow-md)}
+.hero-links a.secondary{border:1px solid var(--border);background:var(--bg-white);color:var(--text-primary)}
+.hero-links a:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+
+/* Section title */
+.s-title{font-size:1.7rem;font-weight:800;letter-spacing:-.5px;margin-bottom:8px}
+.s-sub{font-size:.95rem;color:var(--text-secondary);margin-bottom:28px}
+
+/* 3 paths grid */
+.paths{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:8px}
+.path{background:var(--bg-white);border:1px solid var(--border);border-radius:14px;padding:22px;transition:all .25s}
+.path:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:#d1d5db}
+.path-label{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:1px;padding:3px 10px;border-radius:6px;margin-bottom:10px}
+.path-A .path-label{background:rgba(99,102,241,0.1);color:var(--accent-indigo)}
+.path-B .path-label{background:rgba(124,58,237,0.1);color:var(--accent-kg)}
+.path-C .path-label{background:rgba(217,119,6,0.1);color:var(--accent-amber)}
+.path h3{font-size:1.05rem;font-weight:700;margin-bottom:6px}
+.path p{font-size:.85rem;color:var(--text-secondary);margin-bottom:10px;line-height:1.6}
+.path .tools{font-size:.78rem;color:var(--text-muted);font-family:'Inter',monospace}
+
+/* Core section — API automation */
+.core{background:linear-gradient(180deg,#fff7f9 0%,#fafaff 100%);border:1px solid var(--border);border-radius:20px;padding:36px 32px;margin:8px 0 0}
+.core-tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:1.5px;padding:4px 12px;border-radius:20px;background:var(--grad-rose);color:#fff;margin-bottom:14px}
+.core h2{font-size:1.6rem;font-weight:800;margin-bottom:8px;letter-spacing:-.5px}
+.core .desc{font-size:.95rem;color:var(--text-secondary);margin-bottom:24px}
+
+.tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.tool{background:var(--bg-white);border:1px solid var(--border);border-radius:12px;padding:20px 22px;transition:all .25s}
+.tool:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.tool .name{font-size:1rem;font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.tool .badge{font-size:.65rem;font-weight:700;padding:2px 8px;border-radius:10px;letter-spacing:.5px}
+.tool .badge-oss{background:rgba(13,148,136,0.12);color:var(--accent-teal)}
+.tool .badge-saas{background:rgba(217,119,6,0.12);color:var(--accent-amber)}
+.tool .badge-mine{background:var(--grad-rose);color:#fff}
+.tool .badge-none{background:rgba(225,29,72,0.12);color:var(--accent-rose)}
+.tool .meta{font-size:.78rem;color:var(--text-muted);margin-bottom:8px}
+.tool p{font-size:.85rem;color:var(--text-secondary);line-height:1.6}
+.tool a{color:var(--accent-indigo);text-decoration:none;font-size:.8rem}
+.tool a:hover{text-decoration:underline}
+
+.mine{grid-column:span 2;background:linear-gradient(135deg,#fff 0%,#fff7f9 100%);border-color:rgba(225,29,72,0.25);padding:24px 26px}
+.mine .name{font-size:1.15rem}
+.mine .mine-stats{display:flex;gap:18px;margin:12px 0 14px;flex-wrap:wrap}
+.mine .stat{padding:6px 14px;background:var(--bg-white);border:1px solid var(--border);border-radius:8px}
+.mine .stat b{display:block;font-size:1.1rem;color:var(--accent-rose);font-weight:800;line-height:1.1}
+.mine .stat span{font-size:.68rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px}
+.mine .modules{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px}
+.mine .modules div{padding:8px 10px;background:var(--bg-white);border:1px solid var(--border);border-radius:8px;font-size:.78rem;text-align:center}
+
+/* Demo videos */
+.demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.demo{background:var(--bg-white);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.demo video{width:100%;display:block;background:#000;aspect-ratio:16/9;object-fit:contain}
+.demo .demo-caption{padding:14px 18px;border-top:1px solid var(--border)}
+.demo .demo-caption h4{font-size:.95rem;font-weight:700;margin-bottom:4px}
+.demo .demo-caption p{font-size:.8rem;color:var(--text-secondary)}
+
+/* Conclusion */
+.conclusion{background:var(--bg-alt);border:1px solid var(--border);border-radius:16px;padding:32px}
+.conclusion h2{font-size:1.5rem;font-weight:800;margin-bottom:14px;letter-spacing:-.5px}
+.conclusion ul{list-style:none;padding:0}
+.conclusion li{padding:10px 0 10px 28px;position:relative;font-size:.95rem;line-height:1.6;border-bottom:1px dashed var(--border)}
+.conclusion li:last-child{border-bottom:none}
+.conclusion li::before{content:'→';position:absolute;left:4px;top:10px;color:var(--accent-rose);font-weight:700}
+.conclusion li b{color:var(--text-primary)}
+.conclusion .cta{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap}
+.conclusion .cta a{padding:9px 18px;background:var(--bg-white);border:1px solid var(--border);border-radius:8px;text-decoration:none;font-size:.85rem;color:var(--text-primary);font-weight:600}
+.conclusion .cta a:hover{background:var(--bg-white);box-shadow:var(--shadow-md)}
+
+footer{padding:32px 40px;text-align:center;color:var(--text-muted);font-size:.78rem;border-top:1px solid var(--border)}
+
+@media(max-width:880px){
+  .wrap{padding:100px 22px 60px}
+  .paths{grid-template-columns:1fr}
+  .tool-grid{grid-template-columns:1fr}
+  .mine{grid-column:span 1}
+  .mine .modules{grid-template-columns:repeat(2,1fr)}
+  .demo-grid{grid-template-columns:1fr}
+  .hero h1{font-size:2.2rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand"><a href="index.html">F&amp;F · AX</a></div>
+  <div class="nav-links">
+    <a href="index.html">홈</a>
+    <a href="video-ai-agent.html" class="active">AI 영상 편집</a>
+  </div>
+  <div class="nav-credit">PoC — 조한솔</div>
+</nav>
+
+<div class="wrap">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">AI AGENT × VIDEO EDITING</div>
+  <h1>AI Agent로 <span>영상 편집</span>까지</h1>
+  <p class="sub">Claude Code 같은 코딩 에이전트로 영상 생성/편집을 어디까지 자동화할 수 있나. <br>특히 <b>CapCut · Premiere 같은 편집 툴의 API/MCP</b>로 NLE를 손처럼 조작하는 워크플로우 중심.</p>
+  <div class="hero-links">
+    <a href="https://video-research-lilac.vercel.app/" class="primary" target="_blank">📊 풀 리포트 (Vercel)</a>
+    <a href="https://www.notion.so/fnf-digital/AI-364fd8bcf55880acb226e5eb3aab9edc" class="secondary" target="_blank">📝 노션 PoC</a>
+    <a href="https://github.com/davidcho0326/video_research" class="secondary" target="_blank">💻 GitHub</a>
+  </div>
+</section>
+
+<!-- 3 PATHS -->
+<section>
+  <h2 class="s-title">3가지 길 — 코딩 에이전트로 영상 만들기</h2>
+  <p class="s-sub">"어디서 렌더하느냐"가 카테고리를 가르는 기준.</p>
+  <div class="paths">
+    <div class="path path-A">
+      <div class="path-label">A · 코드 프레임워크</div>
+      <h3>로컬 + headless Chrome</h3>
+      <p>코드(JSX/HTML)로 영상을 처음부터 생성. 완전 제어, 비용 0, 결정적.</p>
+      <div class="tools">Remotion · Hyperframes</div>
+    </div>
+    <div class="path path-B">
+      <div class="path-label">B · NLE 원격 조작</div>
+      <h3>기존 편집기 자동화</h3>
+      <p>Premiere · CapCut 같은 프로 NLE를 MCP/API로 손처럼 조작. <b>이 페이지의 핵심.</b></p>
+      <div class="tools">Premiere Pro MCP · CapCutAPI</div>
+    </div>
+    <div class="path path-C">
+      <div class="path-label">C · 클라우드 SaaS</div>
+      <h3>JSON 선언 + 그쪽 인프라</h3>
+      <p>JSON 한 장 보내면 그쪽 서버에서 렌더. 인프라 0, 분당 과금.</p>
+      <div class="tools">Shotstack · Creatomate · JSON2Video</div>
+    </div>
+  </div>
+</section>
+
+<!-- CORE: API automation -->
+<section>
+  <div class="core">
+    <div class="core-tag">🎯 CORE</div>
+    <h2>편집 툴 API로 영상 편집 자동화</h2>
+    <p class="desc">전통 NLE(Premiere · CapCut)를 코드 에이전트가 손처럼 조작하는 패턴. 사용자가 마우스로 자를 컷을 에이전트가 함수 호출로 자른다.</p>
+
+    <div class="tool-grid">
+
+      <!-- CapCut official -->
+      <div class="tool">
+        <div class="name">CapCut 공식 API <span class="badge badge-none">NONE</span></div>
+        <div class="meta">2026.04 기준 · 공식 입장</div>
+        <p>CapCut <b>공식 공개 API 없음</b>. "Open Platform"은 CapCut 내부에서 돌아가는 플러그인용으로 서버사이드 자동화 불가. <a href="https://samautomation.work/capcut-api/" target="_blank">출처</a></p>
+      </div>
+
+      <!-- CapCutAPI OSS -->
+      <div class="tool">
+        <div class="name">CapCutAPI <span class="badge badge-oss">OSS</span></div>
+        <div class="meta">github.com/ashreo/CapCutAPI</div>
+        <p>비공식 우회. <b>HTTP API + MCP 프로토콜</b> 둘 다 지원. Python 기반으로 CapCut(중국명 剪映) 자동화. 안정성·법적 위치는 변동.</p>
+      </div>
+
+      <!-- Shotstack -->
+      <div class="tool">
+        <div class="name">Shotstack <span class="badge badge-saas">SaaS</span></div>
+        <div class="meta">JSON 편집 트랙 · 개발자 친화</div>
+        <p>JSON으로 클립/오디오/이펙트 선언 → 클라우드 렌더. 모든 요소가 고정 길이 강제, AI 보이스는 별도 결제. $99/500min.</p>
+      </div>
+
+      <!-- Creatomate -->
+      <div class="tool">
+        <div class="name">Creatomate <span class="badge badge-saas">SaaS</span></div>
+        <div class="meta">JSON + 비주얼 템플릿</div>
+        <p>동적 콘텐츠 자동 리사이즈. 드래그앤드롭 에디터 같이 제공. $99/700min — Shotstack보다 40% 저렴.</p>
+      </div>
+
+      <!-- JSON2Video -->
+      <div class="tool" style="grid-column:span 2">
+        <div class="name">JSON2Video <span class="badge badge-saas">SaaS</span></div>
+        <div class="meta">JSON + AI 내장 · Python/JS/PHP SDK</div>
+        <p>AI 보이스·이미지가 렌더링 크레딧에 포함 — 외부 TTS·이미지 서비스 안 묶어도 됨. CapCut API 부재의 가장 흔한 대안으로 추천됨.</p>
+      </div>
+
+      <!-- MINE: Premiere Pro MCP -->
+      <div class="tool mine">
+        <div class="name">Premiere Pro MCP <span class="badge badge-mine">✓ MY STACK</span></div>
+        <div class="meta">github.com/leancoderkavy/premiere-pro-mcp · ExtendScript + QE DOM 전수 매핑</div>
+        <p>업계 표준 NLE(Adobe Premiere Pro)를 코드 에이전트가 직접 조작. <b>가장 강력한 NLE 자동화 경로</b> — Premiere의 모든 기능을 함수 호출로 사용 가능. CapCut API 부재의 본격 대안.</p>
+        <div class="mine-stats">
+          <div class="stat"><b>269</b><span>tools</span></div>
+          <div class="stat"><b>28</b><span>modules</span></div>
+          <div class="stat"><b>2020~25+</b><span>버전 지원</span></div>
+          <div class="stat"><b>MCP 1.27</b><span>프로토콜</span></div>
+        </div>
+        <div class="modules">
+          <div>Timeline / Sequence</div>
+          <div>Effects / Keyframes</div>
+          <div>Audio / Pipeline</div>
+          <div>Export / Render</div>
+          <div>Project / Bin</div>
+          <div>Proxy / Cache</div>
+          <div>Metadata / XMP</div>
+          <div>Color / LUT</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DEMO videos -->
+<section>
+  <h2 class="s-title">실제 자동화 사례 영상</h2>
+  <p class="s-sub">에이전트가 코드/JSON으로 만든 결과. 두 가지 패턴.</p>
+  <div class="demo-grid">
+    <div class="demo">
+      <video controls preload="metadata" muted>
+        <source src="https://video-research-lilac.vercel.app/assets/rm_data_report.mp4" type="video/mp4">
+      </video>
+      <div class="demo-caption">
+        <h4>① 데이터 리포트 → 영상 (영상 소스 ZERO)</h4>
+        <p>ST 26SS 대표님 보고자료 PDF → JSON 8씬 → React 컴포지션 렌더. mp4/mov 자산 0개, 100% 코드/CSS로 생성. 34초 / 1920×1080.</p>
+      </div>
+    </div>
+    <div class="demo">
+      <video controls preload="metadata" muted>
+        <source src="https://video-research-lilac.vercel.app/assets/hf_brandcut.mp4" type="video/mp4">
+      </video>
+      <div class="demo-caption">
+        <h4>② 브랜드컷 자동 생성</h4>
+        <p>모델 영상 위에 배경 교체·그래픽 오버레이를 코드로 합성. NLE 수작업이 함수 호출로 대체되는 패턴 — Premiere MCP도 같은 방식.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCLUSION -->
+<section>
+  <div class="conclusion">
+    <h2>언제 무엇을 쓸 것인가</h2>
+    <ul>
+      <li><b>브랜드 프로모 · 보고용 영상</b> — Remotion (재사용·데이터 자동화) + Hyperframes (footage 위 오버레이)</li>
+      <li><b>기존 촬영본 컷편집 · 컬러 보정 · 정밀 편집</b> — <b style="color:var(--accent-rose)">Premiere Pro MCP</b> · 코딩 에이전트가 NLE를 손처럼 조작 (269 tools)</li>
+      <li><b>모바일/숏폼 CapCut 워크플로우 자동화</b> — CapCutAPI(OSS) 또는 SaaS 우회 (공식 API 부재 우회)</li>
+      <li><b>마케팅 광고 변형 N개 자동 생성</b> — Creatomate · JSON2Video · Shotstack — JSON 한 장으로 즉시 변형</li>
+    </ul>
+    <p style="margin-top:18px;font-size:.9rem;color:var(--text-secondary)"><b>핵심 인사이트:</b> NLE의 자리에 코드 에이전트가 들어간 셈. 마우스 클릭이 함수 호출로 바뀌면 영상 작업도 "코드 리뷰"가 가능해진다.</p>
+    <div class="cta">
+      <a href="https://video-research-lilac.vercel.app/" target="_blank">📊 풀 리포트 보기 (Vercel)</a>
+      <a href="https://www.notion.so/fnf-digital/AI-364fd8bcf55880acb226e5eb3aab9edc" target="_blank">📝 노션 PoC 페이지</a>
+      <a href="https://github.com/davidcho0326/video_research" target="_blank">💻 GitHub 저장소</a>
+      <a href="https://github.com/leancoderkavy/premiere-pro-mcp" target="_blank">🎬 Premiere Pro MCP</a>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  AI Agent로 영상 편집 PoC · F&amp;F AX팀 · 2026-05
+</footer>
+
+</body>
+</html>
